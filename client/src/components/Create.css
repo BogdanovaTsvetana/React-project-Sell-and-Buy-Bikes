@@ -1,0 +1,38 @@
+form label {
+    color: #101e2b;
+    padding: 12px;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 12px;
+    border-radius: 0 4px 4px 4px;
+    margin: 8px 0 2em;
+}
+
+input[type=submit] {
+    background-color: #65878A;
+    color: #012124;;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 150px;
+    margin: 5px 5px 5px 25%;
+    border-radius: 4px;
+}
+
+div.form {
+    border-radius: 5px;
+    padding: 20px;
+    width: 36%;
+    margin: auto;
+}
