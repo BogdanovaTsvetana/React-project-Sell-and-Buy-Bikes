@@ -29,7 +29,7 @@ export default function Create(){
             title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image, likes: []
         }, user.accessToken)
             .then(result => {
-                console.log(result)
+                //console.log(result)
                 navigate(`/list/${result._id}`);
             });
     }
