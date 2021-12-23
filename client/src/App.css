@@ -1,0 +1,33 @@
+
+* {
+  font-family: monospace;
+  box-sizing: border-box;
+  color: #414242;
+}
+
+div.container {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #79a0a0;
+}
+
+h2{
+  text-align: center;
+}
+
+footer {
+  background-color: #AFBC77;
+  padding: 1px;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+
+
