@@ -9,7 +9,9 @@ import Logout from './components/Logout/Logout.js';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import List from './components/Bikes/List/List.js';
-import Create from './components/Bikes/Crate/Create.js'
+import Create from './components/Bikes/Crate/Create.js';
+import Details from './components/Bikes/Details/Details.js';
+import Edit from './components/Bikes/Edit/Edit.js';
 
 import './App.css'
 
@@ -27,6 +29,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/list/" element={<List />} />
             <Route path="/list/create" element={<Create />} />
+            <Route path="/list/:bikeId" element={<Details />} />
+            <Route path="/list/edit/:bikeId" element={<Edit />} />
 
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

@@ -10,7 +10,7 @@ export default function Bike({
 
         <div className="card">
             <div className="img-card">
-                <img className="card" src={bike.image} alt="Item photo" />
+                <img src={bike.image} alt="Item photo" />
             </div>
                 <div className="info-box">
                 <h3>{bike.year} {bike.title}</h3>

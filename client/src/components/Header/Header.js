@@ -14,7 +14,7 @@ export default function Header(){
             { user.email 
                 ? 
                 <>
-                <NavLink to="/list/create"  >Sell</NavLink>
+                <NavLink to="/list/create"  >New Ad</NavLink>
                 <NavLink to="/logout"  >Logout</NavLink>
                 <NavLink to="" >Wellcome, {user.username}</NavLink>
               

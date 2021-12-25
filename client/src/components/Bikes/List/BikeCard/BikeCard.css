@@ -5,13 +5,14 @@ div.card {
     vertical-align: top;
     margin: 0px;
     padding-left: 10px;
+    border: 1px solid #6423af33;;
 }
 
 img.card {
     display: block;
     margin: 0 auto;
     text-align: center;
-    width: 280px;
+    width: 300px;
 }
 
 div.card img {

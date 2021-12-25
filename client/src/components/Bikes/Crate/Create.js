@@ -49,7 +49,7 @@ export default function Create(){
             console.log(message)
         } else {
             const bikeData = {
-                title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image, likes: []
+                title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image
             }
     
             bikeService.create(bikeData, user.accessToken)
@@ -58,9 +58,7 @@ export default function Create(){
                     navigate(`/list/${result._id}`);
                 })
                 .catch(err => {
-                    let notif = err.message;
-                    console.log(typeof(notif))
-                    console.log('>> notif>>', notif.split(',').join('\n')) 
+                    console.log('>> notif>>', err.message) 
                 })  
         }
     }
