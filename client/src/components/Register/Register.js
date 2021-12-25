@@ -14,24 +14,48 @@ export default function Register(){
         let username = formData.get('username');
         let email = formData.get('email');
         let password = formData.get('password');
+        let rePassword = formData.get('rePassword');
         let location = formData.get('location');
 
-        const userData = {
-            username,
-            email,
-            password,
-            location,
-            memberSince: new Date(),
+        let errors = [];
+
+        if ( username == '') {
+            errors.push('Username is required!');
+        } 
+
+        if ( email == '') {
+            errors.push('Email is required!');
         }
 
-        authService.register(userData)
-            .then(result => {
-                login(result);
-                navigate('/')
-            })
-            .catch(err => {
-                console.log('>> 55', err)
-            })
+        if ( password == '') {
+            errors.push('Password is required!');
+        }
+
+        if ( password != rePassword) {
+            errors.push('Passwords don\'t match!');
+        }
+
+        if ( errors.length > 0) {
+            let message = errors.join(' ')
+            console.log(message)
+        } else {
+            const userData = {
+                username,
+                email,
+                password,
+                location,
+                memberSince: new Date(),
+            }
+    
+            authService.register(userData)
+                .then(result => {
+                    login(result);
+                    navigate('/list')
+                })
+                .catch(err => {
+                   console.log('>> 55', err.message)
+                })
+        }
     }
 
     return(

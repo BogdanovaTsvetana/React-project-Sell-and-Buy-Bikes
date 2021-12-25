@@ -11,8 +11,11 @@ export default function Logout(){
         authService.logout(user.accessToken)
             .then(() => {
                 logout();
-                navigate('/')
+                navigate('/list')
             })
+            .catch(err => {
+                console.log('>> 55', err.message)
+             })
     }, []);
 
     return null;   

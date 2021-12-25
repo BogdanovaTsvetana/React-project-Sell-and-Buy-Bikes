@@ -11,13 +11,31 @@ export default function Login(){
         let formData = new FormData(e.currentTarget);
         let username = formData.get('username');
         let password = formData.get('password');
-        console.log(username, password)
+       
+        let errors = [];
 
-        authService.login(username, password)
-            .then(result => {
-                login(result);
-                navigate('/');
-            })
+        if ( username == '') {
+            errors.push('Username is required!');
+        } 
+
+        if ( password == '') {
+            errors.push('Password is required!');
+        }
+
+        if ( errors.length > 0) {
+            let message = errors.join(' ')
+            console.log(message);
+        } else {
+
+            authService.login(username, password)
+                .then(result => {
+                    login(result);
+                    navigate('/list');
+                })
+                .catch(err => {
+                    console.log('>> 55', err.message)
+                })
+        }
     }
 
     return(

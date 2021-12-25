@@ -13,6 +13,7 @@ export default function Create(){
         let title = formData.get('title');
         let year = formData.get('year');
         let price = formData.get('price');  // number
+        price = Number(price);
         let category = formData.get('category');
         let condition = formData.get('condition');
         let frameSize = formData.get('frame-size');
@@ -24,14 +25,44 @@ export default function Create(){
         let postDate = new Date();
         let description = formData.get('description');
         let image = formData.get('image');
-        
-        bikeService.create({
-            title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image, likes: []
-        }, user.accessToken)
-            .then(result => {
-                //console.log(result)
-                navigate(`/list/${result._id}`);
-            });
+
+        let errors = [];
+
+        if ( title == '') {
+            errors.push('Title is required!');
+        } 
+
+        if ( condition == '') {
+            errors.push('Condition is required!');
+        }
+
+        if ( price == '') {
+            errors.push('Price is required!');
+        }
+
+        if ( !(price > 0) ) {
+            errors.push('Price should be a positive number!');
+        }
+
+        if ( errors.length > 0) {
+            let message = errors.join(' ');
+            console.log(message)
+        } else {
+            const bikeData = {
+                title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image, likes: []
+            }
+    
+            bikeService.create(bikeData, user.accessToken)
+                .then(result => {
+                    console.log(result)
+                    navigate(`/list/${result._id}`);
+                })
+                .catch(err => {
+                    let notif = err.message;
+                    console.log(typeof(notif))
+                    console.log('>> notif>>', notif.split(',').join('\n')) 
+                })  
+        }
     }
 
     return(

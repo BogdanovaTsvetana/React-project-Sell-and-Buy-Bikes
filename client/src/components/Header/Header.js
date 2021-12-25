@@ -9,13 +9,14 @@ export default function Header(){
         <header >
             
             <NavLink to="/"  >Home</NavLink>
+            <NavLink to="/list" >List</NavLink>
           
             { user.email 
                 ? 
                 <>
-              
+                <NavLink to="/list/create"  >Sell</NavLink>
                 <NavLink to="/logout"  >Logout</NavLink>
-                <NavLink to="" >Wellcome {user.username}</NavLink>
+                <NavLink to="" >Wellcome, {user.username}</NavLink>
               
                 </>
                 :

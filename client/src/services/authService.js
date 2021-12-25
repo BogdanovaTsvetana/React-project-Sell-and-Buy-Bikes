@@ -1,36 +1,43 @@
 const baseUrl = 'http://localhost:5000/user';;  
 
-export function login(username, password) {
-    return fetch(baseUrl + '/login', {
-        method: "POST",
+export async function login(username, password){
+    let response = await fetch(baseUrl + '/login', {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-type': 'application/json'
         },
         body: JSON.stringify({username, password})
-    })
-        .then(res => {
-            console.log('>>> in auth login, res.ok', res.ok)
-            return res.json()
         })
+
+    if (!response.ok) {
+        let message = await response.json();
+        throw new Error(message.message);
+    }
+    
+    let data = await response.json();
+    return data;       
 }
 
-export function register(userData){
-
-    return fetch(baseUrl + '/register', {
+export async function register(userData){
+    let response = await fetch(baseUrl + '/register', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
         },
         body: JSON.stringify(userData)
-    })
-        .then(res => {
-            console.log('>> res.ok ', res.ok)
-                return res.json();
-        })       
+        })
+
+    if (!response.ok) {
+        let message = await response.json();
+        throw new Error(message.message);
+    }
+    
+    let data = await response.json();
+    return data;       
 }
 
-export function logout(token){
-    return fetch(baseUrl + '/logout', {
+export async function logout(token){
+    let response = fetch(baseUrl + '/logout', {
         method: 'GET',
         headers: {
             'X-Authorization': token,
