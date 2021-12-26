@@ -46,6 +46,10 @@ export default function Create(){
             errors.push('Price should be a positive number!');
         }
 
+        if ( /^https?:\/\//.test(image) == false ) {
+            errors.push('Image must be a valid URL');
+        }
+
         if ( errors.length > 0) {
             let message = errors.join(' ');
             addNotification(message, types.error);
