@@ -17,7 +17,7 @@ export default function Header(){
                 <NavLink to="/list/create"  >New Ad</NavLink>
                 <NavLink to="/logout"  >Logout</NavLink>
                 <NavLink to="" >Wellcome, {user.username}</NavLink>
-              
+                <NavLink to={`/conversations/${user.username}`} >Inbox</NavLink>
                 </>
                 :
                 <>

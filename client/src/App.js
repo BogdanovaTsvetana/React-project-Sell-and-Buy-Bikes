@@ -13,6 +13,10 @@ import Create from './components/Bikes/Crate/Create.js';
 import Details from './components/Bikes/Details/Details.js';
 import Edit from './components/Bikes/Edit/Edit.js';
 
+import SendMessage from './components/Conversations/SendMessage/SendMessage.js';
+import Inbox from './components/Conversations/Inbox/Inbox.js';
+import DetailsConversation from './components/Conversations/DetailsConversation/DetailsConversation.js';
+
 import './App.css'
 
 function App() {
@@ -35,6 +39,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+
+            <Route path="/conversations/:username/send-message/:receiverUsername/:itemTitle" element={<SendMessage />} />
+            <Route path="/conversations/:username" element={<Inbox />} />
+            <Route path="/conversations/:username/:conversationId" element={<DetailsConversation />} />
 
           </Routes>
         
