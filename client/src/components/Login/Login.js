@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 import { useAuthContext } from '../../context/AuthContext.js';
+import { NotificationContext, types } from '../../context/NotificationContext.js';
 import * as authService from '../../services/authService.js';
 
 export default function Login(){
     const navigate = useNavigate();
     const { login } = useAuthContext();
+    const { addNotification } = useContext(NotificationContext); 
     
     function onSubmit(e){
         e.preventDefault();
@@ -14,26 +17,27 @@ export default function Login(){
        
         let errors = [];
 
-        if ( username == '') {
+        if ( username === '') {
             errors.push('Username is required!');
         } 
 
-        if ( password == '') {
+        if ( password === '') {
             errors.push('Password is required!');
         }
 
         if ( errors.length > 0) {
             let message = errors.join(' ')
-            console.log(message);
+            addNotification(message, types.error);
         } else {
 
             authService.login(username, password)
                 .then(result => {
                     login(result);
+                    addNotification('You\'ve been logged in!', types.success);
                     navigate('/list');
                 })
                 .catch(err => {
-                    console.log('>> 55', err.message)
+                    addNotification(err.message, types.error);
                 })
         }
     }

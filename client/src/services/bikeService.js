@@ -12,9 +12,11 @@ export async function create(bikeData, token) {
         body: JSON.stringify(bikeData)
         })
 
+    console.log(response.status)    
     if (!response.ok) {
         let message = await response.json();
         console.log('>> bikeService err')
+        console.log(response.status) 
         throw new Error(message.message);
     }
     
@@ -27,7 +29,6 @@ export async function getAll() {
 
     if (!response.ok) {
         let message = await response.json();
-        console.log('>> bikeService err')
         throw new Error(message.message);
     }
     

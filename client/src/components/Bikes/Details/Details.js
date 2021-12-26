@@ -10,7 +10,7 @@ const BikeDetails = () => {
     const [bike, setBike] = useState({});
     const { bikeId } = useParams();
     const { user } = useAuthContext();
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
   
     useEffect(() => {
         bikeService.getOneById(bikeId)
@@ -20,6 +20,7 @@ const BikeDetails = () => {
             })
             .catch(err => {
                 console.log('>> 55', err.message)
+                navigate('*')
              });
     }, [bikeId]);
 
@@ -30,8 +31,6 @@ const BikeDetails = () => {
 
     function onDeleteClick(e){
         e.preventDefault();
-
-        // conformation ??
         
         bikeService.deleteBike(bikeId, user.accessToken)
             .then(() => {
@@ -40,6 +39,7 @@ const BikeDetails = () => {
             })
             .catch(err => {
                 console.log('>> 55', err.message)
+                navigate('*')
              });
     }
 

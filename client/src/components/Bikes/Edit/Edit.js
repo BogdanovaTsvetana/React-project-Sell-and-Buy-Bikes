@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../../../context/AuthContext.js";
+import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as bikeService from "../../../services/bikeService.js"
 
 import './Edit.css';
@@ -10,6 +11,7 @@ const Edit = () => {
     const [bike, setBike] = useState({});
     const navigate = useNavigate();
     const { user } = useAuthContext();
+    const { addNotification } = useContext(NotificationContext); 
     const { bikeId } = useParams();
   
     useEffect(() => {
@@ -39,15 +41,15 @@ const Edit = () => {
 
         let errors = [];
 
-        if ( title == '') {
+        if ( title === '') {
             errors.push('Title is required!');
         } 
 
-        if ( condition == '') {
+        if ( condition === '') {
             errors.push('Condition is required!');
         }
 
-        if ( price == '') {
+        if ( price === '') {
             errors.push('Price is required!');
         }
 
@@ -57,7 +59,7 @@ const Edit = () => {
 
         if ( errors.length > 0) {
             let message = errors.join(' ');
-            //console.log(message)
+            addNotification(message, types.error);
         } else {
             const updatedBikeData = {
                 title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, description, image
@@ -69,6 +71,7 @@ const Edit = () => {
                 })
                 .catch(err => {
                     console.log('>> notif>>', err.message) 
+                    navigate(`*`);
                 })  
         }
     }

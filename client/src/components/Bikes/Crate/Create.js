@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext.js';
+import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as bikeService from '../../../services/bikeService.js';
 
 export default function Create(){
     const navigate = useNavigate();
     let { user } = useContext(AuthContext);
+    const { addNotification } = useContext(NotificationContext); 
        
     const createBike = (e) => {
         e.preventDefault();
@@ -28,15 +30,15 @@ export default function Create(){
 
         let errors = [];
 
-        if ( title == '') {
+        if ( title === '') {
             errors.push('Title is required!');
         } 
 
-        if ( condition == '') {
+        if ( condition === '') {
             errors.push('Condition is required!');
         }
 
-        if ( price == '') {
+        if ( price === '') {
             errors.push('Price is required!');
         }
 
@@ -46,7 +48,7 @@ export default function Create(){
 
         if ( errors.length > 0) {
             let message = errors.join(' ');
-            console.log(message)
+            addNotification(message, types.error);
         } else {
             const bikeData = {
                 title, year, price, category, condition, frameSize, wheelSize, material, frontTravel, rearTravel, location, postDate, description, image
@@ -58,7 +60,8 @@ export default function Create(){
                     navigate(`/list/${result._id}`);
                 })
                 .catch(err => {
-                    console.log('>> notif>>', err.message) 
+                    console.log(err);
+                    navigate(`*`);
                 })  
         }
     }

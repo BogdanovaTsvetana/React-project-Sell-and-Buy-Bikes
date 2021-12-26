@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../../../context/AuthContext.js";
+import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as messagesService from "../../../services/messagesService.js"
 import MessageCard from './MessageCard/MessageCard.js';
 
@@ -11,15 +12,18 @@ const DetailsConversation = () => {
     const [conversation, setConversation] = useState({});
     const { conversationId } = useParams();
     const { user } = useAuthContext();
+    const { addNotification } = useContext(NotificationContext); 
     const navigate = useNavigate();
 
     useEffect(() => {
         messagesService.getConversation(user.username, conversationId, user.accessToken)
             .then(result => {
                 setConversation(result);
+              
             })
             .catch(err => {
                 console.log('>> notif>>', err.message) 
+                navigate(`*`);
             })   
     }, []);
 
@@ -40,17 +44,17 @@ const DetailsConversation = () => {
                 console.log(result)
                 setConversation(state => ({...state, messages: state.messages.concat(result)}));
                 //setConversation(state => ({...state, messages: [...state.messages, result]}));
+                addNotification('Message sent.', types.success);
                 //navigate('/list')
             })
             .catch(err => {
                 console.log('>> notif>>', err.message) 
+                navigate(`*`);
             }) 
     }
 
     function onDeleteClick(e){
         e.preventDefault();
-
-        // conformation ??
         
         messagesService.deleteConversation(conversation.username, conversation.conversationId, user.accessToken)
             .then(() => {

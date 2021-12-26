@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './context/AuthContext.js';
+import { NotificationProvider } from './context/NotificationContext.js';
+import Notification from './components/Notification/Notification.js';
 
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
@@ -17,15 +19,20 @@ import SendMessage from './components/Conversations/SendMessage/SendMessage.js';
 import Inbox from './components/Conversations/Inbox/Inbox.js';
 import DetailsConversation from './components/Conversations/DetailsConversation/DetailsConversation.js';
 
+import ErrorPage from './components/ErrorPage/ErrorPage.js';
+
 import './App.css'
 
 function App() {
  
   return (
     <AuthProvider>
+    <NotificationProvider>  
+
     <div className='container'>
       
       <Header />
+      <Notification />
 
       <div id="main-container">
         
@@ -44,6 +51,8 @@ function App() {
             <Route path="/conversations/:username" element={<Inbox />} />
             <Route path="/conversations/:username/:conversationId" element={<DetailsConversation />} />
 
+            <Route path="*" element={<ErrorPage />} />
+
           </Routes>
         
       </div>
@@ -52,6 +61,7 @@ function App() {
         <p>@ React Project Buy and Sell Bikes</p>
       </footer> 
     </div>
+    </NotificationProvider> 
     </AuthProvider>
   );
 }

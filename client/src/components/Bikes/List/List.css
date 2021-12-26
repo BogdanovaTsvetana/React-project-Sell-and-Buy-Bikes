@@ -1,0 +1,10 @@
+h2{
+    text-align: center;
+  }
+
+.no-bikes {
+    width: 100%;
+    height: 500px;
+     background-image: url("../../Home/pictureBike.jpg");
+     background-size:cover;      
+ }

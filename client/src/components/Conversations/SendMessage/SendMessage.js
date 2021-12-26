@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { AuthContext } from '../../../context/AuthContext.js';
+import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as messageService from '../../../services/messagesService.js';
 
 export default function SendMessage(){
     const navigate = useNavigate();
     let { user } = useContext(AuthContext);
+    const { addNotification } = useContext(NotificationContext); 
     const { username, receiverUsername, itemTitle } = useParams();
 
     const sendMessage = (e) => {
@@ -23,11 +25,12 @@ export default function SendMessage(){
             .then(result => {
                 console.log('>> created')
                 console.log(result)
-                //  notif Message sent
+                addNotification('Message sent.', types.success);
                 navigate('/list');
             })
             .catch(err => {
                 console.log('>> notif>>', err.message) 
+                navigate(`*`);
             })  
     }
 

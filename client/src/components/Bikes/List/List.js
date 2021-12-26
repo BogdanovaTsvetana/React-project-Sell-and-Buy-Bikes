@@ -23,7 +23,7 @@ export default function List() {
             { 
                 bikes.length > 0
                 ? bikes.map(b => <BikeCard key={b._id} bike={b} />)
-                : <h3>No bikes found</h3>
+                : <h2>No bikes found</h2>
             }
         </section>
     );

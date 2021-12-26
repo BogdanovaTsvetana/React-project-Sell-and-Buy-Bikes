@@ -1,0 +1,45 @@
+.notification {
+    
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    padding: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: rgb(247, 148, 148);
+    color: rgb(20, 3, 3);
+    border-radius: 5px;
+} 
+
+.red{
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    padding: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: rgb(247, 148, 148);
+    color: rgb(20, 3, 3);
+    border-radius: 5px;
+}
+
+.green{
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    width: 50%;
+    padding: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: #7bc472;
+    color: rgb(20, 3, 3);
+    border-radius: 5px;
+}

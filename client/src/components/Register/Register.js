@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 import { useAuthContext } from '../../context/AuthContext.js';
+import { NotificationContext, types } from '../../context/NotificationContext.js';
+
 import * as authService from '../../services/authService.js';
 import './Register.css';
 
 export default function Register(){
     const navigate = useNavigate();
     const { login } = useAuthContext();
+    const { addNotification } = useContext(NotificationContext); 
 
     function onSubmit(e){
         e.preventDefault();
@@ -19,25 +23,25 @@ export default function Register(){
 
         let errors = [];
 
-        if ( username == '') {
+        if ( username === '') {
             errors.push('Username is required!');
         } 
 
-        if ( email == '') {
+        if ( email === '') {
             errors.push('Email is required!');
         }
 
-        if ( password == '') {
+        if ( password === '') {
             errors.push('Password is required!');
         }
 
-        if ( password != rePassword) {
+        if ( password !== rePassword) {
             errors.push('Passwords don\'t match!');
         }
 
         if ( errors.length > 0) {
             let message = errors.join(' ')
-            console.log(message)
+            addNotification(message, types.error);
         } else {
             const userData = {
                 username,
@@ -50,10 +54,11 @@ export default function Register(){
             authService.register(userData)
                 .then(result => {
                     login(result);
-                    navigate('/list')
+                    addNotification('You\'ve been registered!', types.success);
+                    navigate('/list');
                 })
                 .catch(err => {
-                   console.log('>> 55', err.message)
+                   addNotification(err.message, types.error);
                 })
         }
     }
