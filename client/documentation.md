@@ -8,10 +8,10 @@ Guests can see the links to Home, List, Login and Register.
 Logged-in can see Home, List, Welcome "user", Logout.
 
 Home
-Information about the site
+Information about the site. Visible without authentication.
 
 List All Bikes
-List of all bikes for sale. 
+List of all bikes for sale. Visible without authentication.
 Clicking on [read more] button should redirect to details.
 
 Register User
@@ -40,6 +40,7 @@ A validation is made with notification.
 After successful creation the user should be redirected to Details page.
 
 Bike Details
+Visible without authentication.
 If the user is guest the button [ Register to send message ] is visible (can be used).
 If the logged user is the owner of the bike the buttons "Edit" and "Delete" are visible (can be used), otherwise [ Send message ] button is visible (can be used).
 
@@ -67,6 +68,6 @@ By clicking on [Delete Conversation] button, POST request will be made.
 The user won't see the conversation any more, but the other user can still see it.
 If the other user delete the conversation also, then the conversation will be deleted permanently.
 
-
+Error Page
 
 
