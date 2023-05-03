@@ -1,11 +1,8 @@
-// all is written at first step
 const User = require('../models/User.js');
-const Conversation = require('../models/Conversation.js');
-const Message = require('../models/Message.js');
 const { getConversationById } = require('../services/conversationService.js')
-const bcrypt = require('bcrypt');    // 1
-const jwt = require('jsonwebtoken');                  // 1
-const { TOKEN_SECRET } = require('../config/index.js');  // 1
+const bcrypt = require('bcrypt');    
+const jwt = require('jsonwebtoken');                 
+const { TOKEN_SECRET } = require('../config/index.js');  
 
 async function register({username, email, password, memberSince, location}) {        // TODO
 
@@ -50,7 +47,6 @@ function generateToken(user) {    // 1
         email: user.email,
     }, TOKEN_SECRET); 
     
-    //console.log(token)
     return token
 }
 
@@ -85,8 +81,7 @@ async function editUser(username, newData) {        // TODO
     const pattern = new RegExp(`^${username}$`, 'i')
     const user =  await User.findOne({ username: { $regex: pattern} });
     console.log('>> in editUser')
-    //console.log(user)
-    
+  
     if(!user) {
         throw new Error('No such user in database!')
     }
@@ -113,10 +108,7 @@ async function getUserByUsername(username) {
     user.conversations = convPopulated;
     }
    
-    //console.log('in userservice getUserByUsername:')
-    //console.log(user)
-    return user;
-   
+    return user;  
 }
 
 
@@ -124,7 +116,6 @@ async function getUserByEmail(email) {               // TODO
     const pattern = new RegExp(`^${email}$`, 'i')
     const user =  await User.findOne({ email: { $regex: pattern} });  // find returns array
     return user;
-  
 }
 
 
@@ -133,6 +124,5 @@ module.exports = {
     login,
     editUser,
     getUserByUsername,
-    getUserByEmail,          // TODO
-    
+    getUserByEmail,          
 }

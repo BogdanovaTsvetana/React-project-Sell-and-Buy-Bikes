@@ -1,92 +1,42 @@
-
-
-/* 
-* {
-  font-family: monospace;
-  box-sizing: border-box;
-  color: #414242;
-}
-
-div.container {
-  display: block;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: #79a0a0;
-}
-
-h2{
-  text-align: center;
-}
-
-footer {
-  background-color: #AFBC77;
-  padding: 1px;
-  text-align: center;
-  font-size: 15px;
-}
-
- */
-
 @import url("./reset.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url("https://use.fontawesome.com/releases/v6.0.0/css/all.css");
 
 :root {
-    /* --color-font-main: #383E56; */
-    --color-button-main: #D6FF41; 
     --color-yellow-main: #D6FF41;
     --color-purple-main: #B8B6C3;
     --color-pink-main: #F1BFA4;
-
-    /* rgb(232, 131, 91); original palette F69E7B*/
-    --color-background-main: white;
-    --color-background-additional: #D4B5B0;
+    --color-background-white: whitesmoke;
     --color-background-gray: #ADADAD;
-  
-    --box-shadow-card: 0px 1px 8px 4px rgba(0,0,0,0.13); 
     --padding-section: 15px 100px;
 }
   
 html {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: var(--color-font-main);
 }
  
 body {
-  /* max-width: 1300px; */
   position: relative;
-  /* margin: 0 auto; */
 }  
 
 .common__section {
-  background-color: var(--color-background-main);
   background-color: var(--color-background-gray);
   padding: var(--padding-section);
-  min-height: 60vh;
+  min-height: 70vh;
 }
 
 .common__title {
   text-align: center;
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 24px;
   margin-bottom: 15px;
 }
 
 .button {
   background-color: var(--color-pink-main);
-  color: white;
   color: black;
   border: none;
   padding: 8px 12px;
-  /* border-radius: 4px; */
-
-  /* border-radius: 50%; */
   display: block;
   margin: 10px auto 15px;
 }
@@ -101,28 +51,28 @@ body {
   align-items: center;
 }
 
-/* form */
-.form,
-.common__box{
-  padding: 30px;
-  /* max-width: 500px; */
-  margin: 0 auto;
+a{
+  text-decoration: none;
+  text-align: center;
 }
 
 .form{
+  padding: 30px;
+  margin: 0 auto;
   background-color: var(--color-yellow-main);
 }
 
 .common__box{
-  background-color: white;
+  padding: 30px;
+  margin: 0 auto;
+  background-color: var(--color-background-white);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* margin: 20px; */
 }
 
 .common__box__item{
-  font-size: 20px;
+  font-size: 16px;
 }
 
 form label {
@@ -161,4 +111,11 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   background-color: rgb(248, 220, 220);
+}
+
+footer {
+  background-color: var(--color-background-white);
+  padding: 1px;
+  text-align: center;
+  font-size: 15px;
 }

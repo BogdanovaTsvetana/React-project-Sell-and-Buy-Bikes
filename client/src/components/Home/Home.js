@@ -5,10 +5,9 @@ export default function Home(){
     return(
         <section className="home">
             <article className="img-wrap">
-                {/* <img src="./" alt="img"/> */}
             </article >
             <article className="description">
-                <p>Buy or sell you bike here. Choose from the list. Buy or sell you bike here. Choose from the list. Buy or sell you bike here. Choose from the list. Buy or sell you bike here. Choose from the list.
+                <p>You can sell your unwanted bike here for free. You can buy a bike depending on your preferences.
                 </p>
             </article>
             <article className="how">
@@ -16,8 +15,8 @@ export default function Home(){
                     <h3 class="how__box__title">FIND BIKE</h3>
                     <div class = "line"></div>
                     <ul>
-                        <li>Register online. It’s free. Simply enter your name, email and password.</li>
-                        <li>Brouse from the bike list. You can use the filter.</li>
+                        <li>Register online. It’s free. Simply enter your details.</li>
+                        <li>Brouse from the bike list.</li>
                         <li>You can send a message to any bike seller you have selected.</li>
                     </ul>
                 </div>
@@ -26,9 +25,9 @@ export default function Home(){
                     <h3 class="how__box__title">SELL BIKE</h3>
                     <div class = "line"></div>
                     <ul>
-                        <li>Register online. It’s free. Simply enter your name, email and password.</li>
-                        <li>Fill in your bike's details as ...</li>
-                        <li>Buyer who have chosen you will send you a message. In the menu Inbox, you can read your messages.</li>
+                        <li>Register online. It’s free. Simply enter your details.</li>
+                        <li>Fill in your bike's details.</li>
+                        <li>Buyer who have chosen you will send you a message. In the Inbox menu, you can read your messages.</li>
                     </ul>
                 </div>  
             </article>

@@ -2,149 +2,45 @@
     max-width: 1800px;    
   }
   
-  .bike__title {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px;
-    background-color: var(--color-yellow-main);;
-  }
+.bike__title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  background-color: var(--color-yellow-main);;
+}
   
-  .main-info{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
+.main-info{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
   
-  .bike__img-wrapper {
-    width: 60%;
-    margin: 0px 0px 50px 0px;
-  }
+.bike__img-wrapper {
+  width: 60%;
+  margin: 0px 0px 50px 0px;
+}
   
-  .bike__img-wrapper img {
-    aspect-ratio: 1 / 1;
-    overflow: hidden; 
-    object-fit: cover;
-    height: 80%;
-    width: 100%;
-  }
+.bike__img-wrapper img {
+  aspect-ratio: 1 / 1;
+  overflow: hidden; 
+  object-fit: cover;
+  height: 80%;
+  width: 100%;
+}
   
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 0px 20px;
-    width: 35%;
-    font-size: 14px;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0px 20px;
+  width: 35%;
+  font-size: 14px;
+}
 
 .button{
     background-color: var(--color-yellow-main);
-    /* flex-shrink: 0; */
-  }
-  
-  /* .bike-like-button{
-    display: inline;
-    margin: 0px 20px;
-  } */
-  
-  .additional-info{
-    padding: 0px 20px;
-  }
-  
-  /* .details-bike-form{
-    display: flex;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .details-bike-form .button{
-    background-color: var(--color-yellow-main);
-    flex-shrink: 0;
-  } */
-  
-  /* .comments__title{
-    text-align: center;
-    font-size: 26px;
-    margin: 20px;
-  } */
-  
-  /* .comments__items {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 800px;
-    margin: 0 auto;
-  } */
-  
-  /* .comments__item {
-    padding: 8px;
-    background-color: white;
-    -webkit-box-shadow: inset 1px 1px 4px 0px rgba(0,0,0,0.15); 
-    box-shadow: inset 1px 1px 4px 0px rgba(0,0,0,0.15);
-    max-width: 800px;
-    margin: 0px;
-  } */
-  
-  /* .comments__item__content {
-    font-size: 14px;
-    padding: 6px;
-  } 
-  
-  .no-comments{
-    text-align: center;
-  }
-   */
-    
-
-
-
-/* section {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: top;
-    margin: 5px;
-    
 }
 
-.details-img {
-    display: block;
-    float: left;
-    margin: 0 auto;
-    text-align: center;
-    width: 400px;
-    height: 300px;
-}
+  
 
-
-img {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    width: 370px;    
-}
-
-.details-buttons {
-    display: block;
-    margin: 10px;
-    text-align: center;
-    width: 350px;
-    height: 50px;
-}
-
-.details {
-    display: block;
-    float: right;
-    margin: 0 auto;
-    text-align: left;
-    width: 480px;
-    height: auto;
-    padding-left: 10px;
-    font-size: 16px;
-}
-
-
-
-
- */

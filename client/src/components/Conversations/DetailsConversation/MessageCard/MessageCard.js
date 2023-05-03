@@ -1,21 +1,16 @@
 //import { Link } from 'react-router-dom';
-//import './MessageCard.css';
+import './MessageCard.css';
 
 export default function MessageCard({
     message,  
 }){
-    //console.log(message.author)
+    let postDate = message.postDate ? message.postDate.slice(0, 10) : '';
     
     return (
-        <div className="">
-
-            
-            <span>{message.author} says:    </span>
-            <span>{message.message}</span>
-            <br/>
-                
+        <div className="details-conversation__item">
+            <p>{message.author} | {postDate} </p>
+            <p>{message.message}</p>
         </div>
-
     );
 }
 

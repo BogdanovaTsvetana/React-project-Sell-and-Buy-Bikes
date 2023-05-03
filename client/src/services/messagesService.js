@@ -1,6 +1,4 @@
-
 const baseUrl = 'http://localhost:5000/conversations';
-
 
 export async function createConversation(messageData, token, username, receiverUsername, itemTitle) {
     let response = await fetch(`${baseUrl}/${username}/send-message/${receiverUsername}/${itemTitle}`, {

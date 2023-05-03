@@ -10,6 +10,8 @@ router.post('/:username/send-message/:receiverUsername/:itemTitle', isUser(), as
     const username = req.params.username;
     const receiverUsername = req.params.receiverUsername;
     const itemTitle = req.params.itemTitle;
+
+    messageData.postDate = new Date();
    
     try {
         const user = await userService.getUserByUsername(username);
@@ -132,6 +134,7 @@ router.post('/:username/:conversationId', isUser(), async(req, res) => {
     const messageData = {
         author: username,
         message: req.body.message,
+        postDate: new Date(),
     }
     console.log('username, conversationId, messageData')
     console.log(username, conversationId, messageData)
@@ -231,10 +234,6 @@ router.delete('/:username/:conversationId', isUser(), async(req, res) => {   // 
         res.status(err.status || 400).json( err.message );
     }
 });
-
-
-
-
 
 module.exports = router;
 

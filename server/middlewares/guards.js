@@ -1,6 +1,4 @@
-
-
-function isUser() {             // 2
+function isUser() {            
     return (req, res, next) => {
         if (req.user) {
            
@@ -11,7 +9,7 @@ function isUser() {             // 2
     }
 }
 
-function isGuest() {           // 2
+function isGuest() {          
     return (req, res, next) => {
         if ( !req.user ) {
             next();

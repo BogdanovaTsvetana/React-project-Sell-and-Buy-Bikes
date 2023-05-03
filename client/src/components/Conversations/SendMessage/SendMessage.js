@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../../context/AuthContext.js';
 import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as messageService from '../../../services/messagesService.js';
+import './SendMessage';
 
 export default function SendMessage(){
     const navigate = useNavigate();
@@ -35,16 +36,15 @@ export default function SendMessage(){
     }
 
     return(
-        <section>
-            <h2>Send Message</h2>
-            <p>To: {receiverUsername}</p>
-            <p>Subject: {itemTitle}</p>        
 
-            <form  onSubmit={sendMessage} method='POST' >
-                <textarea name="message" placeholder="Your message here..." rows="5" cols="100"></textarea>           
-                <input type="submit" value="Send" />
-            </form>            
-                                
+        <section class="common__section">
+            <h2 class="common__title">SEND MESSAGE</h2>           
+
+            <form  onSubmit={sendMessage} method='POST' className="form">
+                <h3 className="message-title">To  {receiverUsername} | {itemTitle} </h3>
+                <textarea name="message" rows="10" cols="100" placeholder="Your message here..." ></textarea>           
+                <button type="submit" class="button">SEND</button>
+            </form>                                   
         </section> 
     )
 }

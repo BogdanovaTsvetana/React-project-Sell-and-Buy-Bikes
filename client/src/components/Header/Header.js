@@ -8,7 +8,7 @@ export default function Header(){
     return (
         <header className="header">
             <div className="header__logo">
-                BIKES
+                BS BIKES
             </div>
 
             <nav className="header__nav">
@@ -20,12 +20,12 @@ export default function Header(){
                         <NavLink to="/list"  >List</NavLink>
                     </li>
 
-                    { user.email 
+                    { user.username 
                 ? 
                 <>
                
                     <li className="header__nav__item">
-                    <NavLink to="" >Wellcome, {user.username}</NavLink>
+                    <NavLink to="" >Wellcome {user.username}</NavLink>
                     </li>
                     <li className="header__nav__item">
                         <NavLink to="/list/create"  >New Ad</NavLink>
@@ -49,22 +49,6 @@ export default function Header(){
             }
                 </ul>
             </nav>
-
-
-            {/* { user.email 
-                ? 
-                <>
-                <NavLink to="/list/create"  >New Ad</NavLink>
-                <NavLink to="/logout"  >Logout</NavLink>
-                <NavLink to="" >Wellcome, {user.username}</NavLink>
-                <NavLink to={`/conversations/${user.username}`} >Inbox</NavLink>
-                </>
-                :
-                <>
-                <NavLink to="/login"  >Login</NavLink>
-                <NavLink to="/register"  >Register</NavLink>
-                </>
-            } */}
         </header>
     );
 }

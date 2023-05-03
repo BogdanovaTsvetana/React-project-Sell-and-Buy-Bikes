@@ -5,7 +5,6 @@ import { useAuthContext } from "../../../context/AuthContext.js";
 import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as messagesService from "../../../services/messagesService.js"
 import MessageCard from './MessageCard/MessageCard.js';
-
 import './DetailsConversation.css';
 
 const DetailsConversation = () => {
@@ -43,9 +42,8 @@ const DetailsConversation = () => {
                 console.log('result')
                 console.log(result)
                 setConversation(state => ({...state, messages: state.messages.concat(result)}));
-                //setConversation(state => ({...state, messages: [...state.messages, result]}));
+                // setConversation(state => ({...state, messages: [...state.messages, result]}));
                 addNotification('Message sent.', types.success);
-                //navigate('/list')
             })
             .catch(err => {
                 console.log('>> notif>>', err.message) 
@@ -67,25 +65,29 @@ const DetailsConversation = () => {
     }
 
     return (
-        <section id="sendmessage">
-            <h3>Conversation "{conversation.subject}" with {conversation.withh}</h3>
- 
+        <section class="common__section">
+            <h2 class="common__title">Conversation with {conversation.withh} about "{conversation.subject}"</h2>
+    
             { 
                 conversation.messages
-                ?
-                conversation.messages.map(m => <MessageCard key={m._id} message={m} />)
+                ? (
+                <ul className="details-conversation__items">
+                    {conversation.messages.map(m => <MessageCard key={m._id} message={m} />)}
+
+                    <li class="details-conversation__item">
+                        <form onSubmit={sendMessageHandler} method='POST' >
+                            <textarea name="message" rows="3" cols="60" placeholder="Your message here..." ></textarea>
+                            <button type="submit" class="button">SEND</button>
+                            <Link to="" onClick={onDeleteClick}> [ Delete Conversation ] </Link>
+                        </form>
+                    </li>
+                </ul>
+                )
+                
                 :
                 <></>
             }
-       
-            <br/>
-            <form onSubmit={sendMessageHandler} method='POST' >
-                <textarea name="message" placeholder="Your message here..." rows="5" cols="100"></textarea>
-                <input type="submit" value="Send" />
-            </form>
 
-            <Link to="" onClick={onDeleteClick}> [ Delete Conversation ] </Link>
-    
         </section>
     )
 }

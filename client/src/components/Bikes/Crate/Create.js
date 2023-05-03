@@ -75,8 +75,7 @@ export default function Create(){
             <h2 class="common__title">SELL BIKE</h2>
 
             <form className="form create" onSubmit={createBike} method='POST' >
-                <div className="form create__container">
-                <div className="create__column">
+                
                 <label htmlFor="title">Title required:</label>
                 <input type="text" name="title" />
 
@@ -107,9 +106,7 @@ export default function Create(){
 
                 <label htmlFor="frame-size">Frame Size:</label>
                 <input type="text" name="frame-size" />
-                </div>
-
-                <div className="create__column">
+            
                 <label htmlFor="wheel-size">Wheel Size:</label>
                 <input type="text" name="wheel-size" />
                 
@@ -140,13 +137,9 @@ export default function Create(){
                 <input type="text" name="image" placeholder="https://" />
 
                 <button type="submit" class="button">SAVE</button>
-                </div>
-
-            
-
-                </div>
+          
             </form>
         </section>
- 
+
     );
 }

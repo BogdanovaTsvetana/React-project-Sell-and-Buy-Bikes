@@ -47,8 +47,6 @@ export default function Login(){
             <h2 className="common__title">Login</h2>
        
             <form className="form" onSubmit={onSubmit} method="POST" >
-                {/* <label htmlFor="email">Email:</label>
-                <input type="text" name="email" placeholder="Email" /> */}
 
                 <label htmlFor="username">Username:</label>
                 <input type="text" name="username" placeholder="Username" />
@@ -56,21 +54,9 @@ export default function Login(){
                 <label htmlFor="password">Password:</label>
                 <input type="password"  name="password" placeholder="Password" />
             
-                {/* <input type="submit" class="register" value="Register" />   */}
                 <button type="submit" className="button" >Login</button>
             </form>
         </section>
-
-        // <section>
-        //     <h2>Login</h2>
-        //     <form className="form" onSubmit={onSubmit} method="POST">
-        //         <label htmlFor="username">Username:</label>
-        //         <input type="text" name="username" placeholder="Username"  />
-        //         <label htmlFor="password">Password:</label>
-        //         <input type="password" name="password" placeholder="Password" />
-        //         <input type="submit" value="Login" />
-        //     </form>
-        // </section>
 
     );
 }

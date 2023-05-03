@@ -1,0 +1,11 @@
+.details-conversation__item {
+    padding: 8px;
+    background-color: white;
+    max-width: 800px;
+    margin: 0px;
+  }
+   
+  .details-conversation__item p {
+    font-size: 16px;
+    padding: 6px;
+  }

@@ -1,8 +1,6 @@
-
 const User = require('../models/User.js');
 const Conversation = require('../models/Conversation.js');
 const Message = require('../models/Message.js');
-
 
 async function sendMessage(conversationId, messageData){
     const conversation = await Conversation.findById(conversationId);    
@@ -18,7 +16,6 @@ async function sendMessage(conversationId, messageData){
 
     return message;
 }  
-
 
 async function createConversation(userId, receiverId, conversationData) {        // TODO
     const user = await User.findById(userId);
@@ -41,7 +38,6 @@ async function createConversation(userId, receiverId, conversationData) {       
 }
     
 
-
 async function getConversationById(id) {
     const conversation = await Conversation.findById(id)
         .populate('user1')
@@ -51,7 +47,6 @@ async function getConversationById(id) {
    
     return conversation;
 }
-
 
 
 async function getMessageById(id) {
@@ -72,25 +67,13 @@ async function editMessage(messageId, newData) {        // TODO
 
 }
 
-async function getItemById(id) {
-    const item = await Item.findById(id).populate('owner').lean();  //  TODO  change Model
-   
-    return item;
-}
-
 async function deleteConversation(id) {
-   
     return Conversation.findByIdAndDelete(id);
 }
 
 async function deleteMessage(message){
     return Message.findByIdAndDelete(message);
 }
-
-
-
-
-
 
 
 module.exports = {
@@ -101,5 +84,4 @@ module.exports = {
     editMessage,
     deleteConversation,
     deleteMessage,
-    
 }

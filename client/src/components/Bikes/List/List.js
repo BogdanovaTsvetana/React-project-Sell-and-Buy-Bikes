@@ -31,8 +31,6 @@ export default function List() {
                 )
                 : <h2 className="no-bikes">No bikes found</h2>
             }
-
         </section>
-
     );
 }

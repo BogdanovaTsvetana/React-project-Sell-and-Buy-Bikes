@@ -1,4 +1,3 @@
-
 .img-wrap {
   width: 100%;
   height: 500px;
@@ -7,14 +6,13 @@
 }
 
 .description{
-  /* height: 100px; */
   background-color: var(--color-yellow-main);
-  
 }
 
 .description p{
   color: black;
   font-size: 18px;
+  font-style: italic;
   text-align: center;
   line-height: 1.5;
   padding: 30px 200px;
@@ -33,22 +31,15 @@
 }
 
 .buy{
-  background-color: #F1BFA4;
-  /* background-color: #B6B3C4;
-  background-color: #ED7C5E; */
-  background-color: #B8B6C3;
   background-color: var(--color-pink-main);
-
 }
 
 .sell{
-  background-color: #7BD8C6;
-  background-color: #F1BFA4;
   background-color: var(--color-purple-main);
 }
 
 .how__box__title{
-  font-size: 36px;
+  font-size: 34px;
   font-weight: bold;
   color: var(--color-yellow-main);
 }

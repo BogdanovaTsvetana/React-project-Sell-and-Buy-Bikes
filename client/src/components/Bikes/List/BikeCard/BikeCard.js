@@ -19,17 +19,13 @@ export default function Bike({
                     <p className="card-info">Frame Size: {bike.frameSize}</p>
                     <p className="card-info">Wheel Size: {bike.wheelSize}</p>
                     <p className="card-info">Material: {bike.material}</p>
-                    {/* <p className="card-info">Front Travel: {bike.frontTravel}</p>
-                    <p className="card-info">Rear Travel: {bike.rearTravel}</p> */}
                     <p className="card-info">Location: {bike.location}</p>
                     <p className="card-info">Seller: {seller.username}</p>
                     <p className="card-info">Price: {bike.price}</p>
 
-                    <Link to={`/list/${bike._id}`} className="button">Read More</Link>
-                
+                    <Link to={`/list/${bike._id}`} className="button">Read More</Link>    
+                  
             </div>
-
-            
         </div>
     );
 }

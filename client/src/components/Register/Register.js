@@ -83,10 +83,8 @@ export default function Register(){
                 <label htmlFor="location">Location:</label>
                 <input type="text" name="location" placeholder="Location" />
                 
-                {/* <input type="submit" class="register" value="Register" />   */}
-
-                <button type="submit" className="button" >Register as a buyer</button>
-                <button type="submit" className="button second">Continue to register as a seller</button>
+                <button type="submit" className="button" >REGISTER</button>
+    
             </form>
         </section>
     );

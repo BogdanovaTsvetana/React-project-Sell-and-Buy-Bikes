@@ -12,7 +12,6 @@ const schema = new Schema({
     soldItems: [{ type: Schema.Types.ObjectId, ref: 'Item', default: [] }],
     watchlist: [{ type: Schema.Types.ObjectId, ref: 'Item', default: [] }],
     conversations: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }],
-    //followers: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }],
 });
 
 module.exports = model('User', schema);
