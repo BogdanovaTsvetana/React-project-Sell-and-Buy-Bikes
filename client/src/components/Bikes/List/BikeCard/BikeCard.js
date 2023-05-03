@@ -9,25 +9,27 @@ export default function Bike({
     return (
 
         <div className="card">
-            <div className="img-card">
+            <div className="card__img-wrapper">
                 <img src={bike.image} alt="Item photo" />
             </div>
-                <div className="info-box">
-                <h3>{bike.year} {bike.title}</h3>
-                <p>Category: {bike.category}</p>
-                <p>Condition: {bike.condition}</p>
-                <p>Frame Size: {bike.frameSize}</p>
-                <p>Wheel Size: {bike.wheelSize}</p>
-                <p>Material: {bike.material}</p>
-                <p>Front Travel: {bike.frontTravel}</p>
-                <p>Rear Travel: {bike.rearTravel}</p>
-                <p>Location: {bike.location}</p>
-                <p>Seller: {seller.username}</p>
-                <p>Price: {bike.price}</p>
+                <div className="content">
+                    <h3 className="card__title">{bike.year} {bike.title}</h3>
+                    <p className="card-info">Category: {bike.category}</p>
+                    <p className="card-info">Condition: {bike.condition}</p>
+                    <p className="card-info">Frame Size: {bike.frameSize}</p>
+                    <p className="card-info">Wheel Size: {bike.wheelSize}</p>
+                    <p className="card-info">Material: {bike.material}</p>
+                    {/* <p className="card-info">Front Travel: {bike.frontTravel}</p>
+                    <p className="card-info">Rear Travel: {bike.rearTravel}</p> */}
+                    <p className="card-info">Location: {bike.location}</p>
+                    <p className="card-info">Seller: {seller.username}</p>
+                    <p className="card-info">Price: {bike.price}</p>
 
-                <Link to={`/list/${bike._id}`} >[Read More]</Link>
+                    <Link to={`/list/${bike._id}`} className="button">Read More</Link>
                 
             </div>
+
+            
         </div>
     );
 }

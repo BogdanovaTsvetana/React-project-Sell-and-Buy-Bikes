@@ -1,5 +1,5 @@
 
-form label {
+/* form label {
     color: #101e2b;
     padding: 12px;
 }
@@ -36,4 +36,11 @@ div.form {
     padding: 20px;
     width: 36%;
     margin: auto;
+} */
+
+.form{
+    max-width: 600px;
+}
+.button.second{
+    background-color: var(--color-purple-main);
 }

@@ -81,9 +81,9 @@ const Edit = () => {
     }
 
     return (   
-        <section> 
-          <h2>Edit Your Ad</h2>
-            <form onSubmit={editHandler} method='POST' >
+        <section class="common__section">
+            <h2 class="common__title">EDIT YOUR ADD</h2>
+            <form className="form edit" onSubmit={editHandler} method='POST' >
 
                 <label htmlFor="title">Title:</label>
                 <input type="text" name="title" defaultValue={bike.title} />
@@ -105,7 +105,13 @@ const Edit = () => {
                 </select>
                
                 <label htmlFor="condition">Condition:</label>
-                <input type="text" name="condition" defaultValue={bike.condition} />
+                <select  name="condition" value={bike.condition} onChange={(e) => setBike(s => ({...s, condition: e.target.value}))}>
+                    <option value="any">Any</option>
+                    <option value="new">New</option>
+                    <option value="used-like-new">Used - like new</option>
+                    <option value="used-good">Used - good</option>
+                    <option value="poor">Poor</option>
+                </select>
 
                 <label htmlFor="frame-size">Frame Size:</label>
                 <input type="text" name="frame-size" defaultValue={bike.frameSize} />
@@ -114,7 +120,14 @@ const Edit = () => {
                 <input type="text" name="wheel-size" defaultValue={bike.wheelSize} />
 
                 <label htmlFor="material">Material:</label>
-                <input type="text" name="material" defaultValue={bike.material} />
+                <select  name="material" value={bike.material} onChange={(e) => setBike(s => ({...s, material: e.target.value}))}>
+                    <option value="any">Any</option>
+                    <option value="aluminium">Aluminium</option>
+                    <option value="carbon-fibre">Carbon Fibre</option>
+                    <option value="chromoly">Chromoly</option>
+                    <option value="steel">Steel</option>
+                    <option value="tytanium">Tytanium</option>
+                </select>
 
                 <label htmlFor="front-travel">Front Travel:</label>
                 <input type="text" name="front-travel" defaultValue={bike.frontTravel} />
@@ -126,12 +139,12 @@ const Edit = () => {
                 <input type="text" name="location" defaultValue={bike.location} />
 
                 <label htmlFor="description">Description:</label>
-                <textarea name="description" rows="10" cols="50" defaultValue={bike.description}></textarea>
+                <textarea name="description" rows="3" cols="50" defaultValue={bike.description}></textarea>
 
                 <label htmlFor="image">Image:</label>
                 <input type="text" name="image" placeholder="https://" defaultValue={bike.image}/>
 
-                <input type="submit"  value="Save" />
+                <button type="submit" class="button">SAVE</button>
 
             </form>   
         </section>

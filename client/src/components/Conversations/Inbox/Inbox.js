@@ -19,13 +19,28 @@ export default function Inbox() {
     }, []);
      
    return (
-        <section>
-            <h2>Your Conversations</h2>
+        // <section>
+        //     <h2>Your Conversations</h2>
+        //     { 
+        //         conversations.length > 0
+        //         ? conversations.map(c => <ConversationCard key={c.conversationId} conversation={c} />)
+        //         : <h2>No messages</h2>
+        //     }
+        // </section>
+
+        <section class="common__section">
+            <h2 class="common__title">YOUR CONVERSATIONS</h2>
             { 
-                conversations.length > 0
-                ? conversations.map(c => <ConversationCard key={c.conversationId} conversation={c} />)
-                : <h2>No messages</h2>
+            conversations.length > 0
+            ? (
+            <ul className="conversations" >
+            {conversations.map(c => <ConversationCard key={c.conversationId} conversation={c} />)}
+             </ul>
+            )
+            // : <h2 className="no-messages">No messages</h2>
+            : <div className="no-messages">No messages</div>
             }
-        </section>
+
+</section>
     );
 }

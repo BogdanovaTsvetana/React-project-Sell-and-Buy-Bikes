@@ -64,22 +64,29 @@ export default function Register(){
     }
 
     return(
-        <section >
-            <h2>Register</h2>
+        <section className="common__section">
+            <h2 className="common__title">Register</h2>
            
             <form className="form" onSubmit={onSubmit} method="POST" >
                 <label htmlFor="email">Email:</label>
                 <input type="text" name="email" placeholder="Email" />
+
                 <label htmlFor="username">Username:</label>
                 <input type="text" name="username" placeholder="Username" />
+
                 <label htmlFor="password">Password:</label>
                 <input type="password"  name="password" placeholder="Password" />
+
                 <label htmlFor="rePassword">Repeat Password:</label>
                 <input type="password"  name="rePassword" placeholder="Repeat Password" />
+
                 <label htmlFor="location">Location:</label>
                 <input type="text" name="location" placeholder="Location" />
                 
-                <input type="submit" class="register" value="Register" />  
+                {/* <input type="submit" class="register" value="Register" />   */}
+
+                <button type="submit" className="button" >Register as a buyer</button>
+                <button type="submit" className="button second">Continue to register as a seller</button>
             </form>
         </section>
     );

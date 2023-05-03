@@ -45,49 +45,74 @@ const BikeDetails = () => {
 
     return (
         
-        <section>
+        <section class="common__section">
+        <h2 class="common__title">BIKE DETAILS</h2>
+            <div class="common__box bike__box">
           
-           <h2>{bike.year} {bike.title}</h2>
-           <div className="details-img">
-                <img src={bike.image} alt="Bike photo" />
-                <div className="details-buttons">
+           <h3 class="bike__title">{bike.year} {bike.title}</h3>
+
+           <article class="main-info">
+           <div class="bike__img-wrapper">
+                    <img src={bike.image} alt="Bike photo" />
+                </div>
+
+           <div className="content">
+           <p className="common__box__item">Price in lv.: <span>{bike.price}</span></p>
+            <p className="common__box__item">Category: <span>{bike.category}</span></p>
+            <p className="common__box__item">Condition: {bike.condition}</p>
+            <p className="common__box__item">Frame Size: {bike.frameSize}</p>
+            <p className="common__box__item">Wheel Size: {bike.wheelSize}</p>
+            <p className="common__box__item">Material: {bike.material}</p>
+            <p className="common__box__item">Front Travel: {bike.frontTravel}</p>
+            <p className="common__box__item">Rear Travel: {bike.rearTravel}</p>
+            <p className="common__box__item">Location: {bike.location}</p>
+            <p className="common__box__item">Post Date: {postDate}</p>         
+            <p className="common__box__item">Description: {bike.description}</p>
+            <p className="common__box__item">Seller: {bike.owner?.username}</p>
+
+
+            {/* <div class="buttons-list">
+                        <button (click)="enterEditMode()" class="button">Edit</button>
+                        <button (click)="deleteNanny()" class="button delete-button">Delete my nanny profile</button>
+                    </div> */}
+
+            <div className="buttons-list">
                     { isUser && ( isOwner 
                     ? 
                     <>
-                    <Link to={`/list/edit/${bike._id}`} > [ Edit ] </Link>
-                    <Link to="" onClick={onDeleteClick}> [ Delete ] </Link>
+                    <Link to={`/list/edit/${bike._id}`} className="button">EDIT</Link>
+                    <Link to="" onClick={onDeleteClick} className="button delete-button">DELETE</Link>
                     </>
                     :
                     <>
-                    <Link to={`/conversations/${user.username}/send-message/${bike.owner?.username}/${bike.title}`} >[ Send message ]</Link>
+                    <Link to={`/conversations/${user.username}/send-message/${bike.owner?.username}/${bike.title}`} className="button">SEND MESSAGE</Link>
                    
                     </>
                     )}
                     { !isUser
                     ?
-                    <Link to="/register" >[ Register to send message ]</Link>   
+                    <Link to="/register" className="button">REGISTER TO SEND MESSAGE</Link>   
                     :
                     <></>
                     }
-                </div>
-           </div>
-          
-           <div className="details">
-           <p>Price in lv.: <span>{bike.price}</span></p>
-            <p>Category: <span>{bike.category}</span></p>
-            <p>Condition: {bike.condition}</p>
-            <p>Frame Size: {bike.frameSize}</p>
-            <p>Wheel Size: {bike.wheelSize}</p>
-            <p>Material: {bike.material}</p>
-            <p>Front Travel: {bike.frontTravel}</p>
-            <p>Rear Travel: {bike.rearTravel}</p>
-            <p>Location: {bike.location}</p>
-            <p>Post Date: {postDate}</p>         
-            <p>Description: {bike.description}</p>
-            <p>Seller: {bike.owner?.username}</p>
+                </div>    
+
             </div>
+
+            
+            </article>
+
+           {/* <div className="details-img">
+                <img src={bike.image} alt="Bike photo" />
+                
+           </div> */}
+          
+           </div>
         </section>
-    )
+
+
+
+    );
 }
 
 export default BikeDetails

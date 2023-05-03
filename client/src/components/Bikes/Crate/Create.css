@@ -1,4 +1,18 @@
-form label {
+.create{
+    max-width: 1200px;
+    
+}
+
+.create__container{
+    display: flex;
+    flex-direction: row;
+}
+
+.create__column{
+    width: 300px;
+}
+
+/* form label {
     color: #101e2b;
     padding: 12px;
 }
@@ -35,4 +49,4 @@ div.form {
     padding: 20px;
     width: 36%;
     margin: auto;
-}
+} */

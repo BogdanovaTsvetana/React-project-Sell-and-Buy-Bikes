@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './ConversationCard.css';
 
 export default function Bike({
     conversation,  
@@ -8,13 +9,12 @@ export default function Bike({
 
         <div className="conversation">
            
-            <span>Conversation with: {conversation.withh} </span>
-            <span>Subject: "{conversation.subject}""  </span>
-            <span>New messages: {conversation.newMessages}  </span>
+            <span className="conversation__content">{conversation.withh}  </span>
+            <span className="conversation__content">{conversation.subject}  </span>
+            <span className="conversation__content">New messages: {conversation.newMessages}  </span>
             
-            <Link to={`/conversations/${conversation.username}/${conversation.conversationId}`} >[ All messages ]</Link>
+            <Link to={`/conversations/${conversation.username}/${conversation.conversationId}`} className="button"> All messages</Link>
             
         </div>
-
     );
 }

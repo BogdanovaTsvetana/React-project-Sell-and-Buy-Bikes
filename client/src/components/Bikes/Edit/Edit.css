@@ -1,5 +1,10 @@
+.edit{
+    max-width: 500px;
+    
+}
 
-section {
+
+/* section {
     display: inline-block;
     background: white;
     width: auto;
@@ -43,7 +48,7 @@ img {
     height: auto;
     padding-left: 10px;
     font-size: 16px;
-}
+} */
 
 
 

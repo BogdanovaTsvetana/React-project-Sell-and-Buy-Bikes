@@ -6,12 +6,52 @@ export default function Header(){
     const { user } = useAuthContext();
 
     return (
-        <header >
-            
-            <NavLink to="/"  >Home</NavLink>
-            <NavLink to="/list" >List</NavLink>
-          
-            { user.email 
+        <header className="header">
+            <div className="header__logo">
+                BIKES
+            </div>
+
+            <nav className="header__nav">
+                <ul className="header__nav__items">
+                    <li className="header__nav__item">
+                        <NavLink to="/"  >Home</NavLink>
+                    </li>
+                    <li className="header__nav__item">
+                        <NavLink to="/list"  >List</NavLink>
+                    </li>
+
+                    { user.email 
+                ? 
+                <>
+               
+                    <li className="header__nav__item">
+                    <NavLink to="" >Wellcome, {user.username}</NavLink>
+                    </li>
+                    <li className="header__nav__item">
+                        <NavLink to="/list/create"  >New Ad</NavLink>
+                    </li>
+                    <li className="header__nav__item">
+                        <NavLink to={`/conversations/${user.username}`} >Inbox</NavLink>
+                    </li>
+                    <li className="header__nav__item">
+                        <NavLink to="/logout"  >Logout</NavLink>
+                    </li>
+                </>
+                :
+                <>
+                    <li className="header__nav__item">
+                        <NavLink to="/login"  >Login</NavLink>
+                    </li>
+                    <li className="header__nav__item">
+                        <NavLink to="/register"  >Register</NavLink>
+                    </li>
+                </>
+            }
+                </ul>
+            </nav>
+
+
+            {/* { user.email 
                 ? 
                 <>
                 <NavLink to="/list/create"  >New Ad</NavLink>
@@ -24,7 +64,9 @@ export default function Header(){
                 <NavLink to="/login"  >Login</NavLink>
                 <NavLink to="/register"  >Register</NavLink>
                 </>
-            }
+            } */}
         </header>
     );
 }
+
+

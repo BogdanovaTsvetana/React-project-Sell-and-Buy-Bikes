@@ -1,4 +1,9 @@
+.form{
+    max-width: 600px;
+}
 
+
+/* 
 
 form label {
     color: #101e2b;
@@ -37,4 +42,4 @@ div.form {
     padding: 20px;
     width: 36%;
     margin: auto;
-}
+} */

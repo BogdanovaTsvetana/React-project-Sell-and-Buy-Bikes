@@ -1,0 +1,12 @@
+.concersations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 0 auto;
+  }  
+
+  .no-messages{
+    text-align: center;
+    font-size: 20px;
+  }

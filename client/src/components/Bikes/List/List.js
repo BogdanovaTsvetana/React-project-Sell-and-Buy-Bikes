@@ -12,19 +12,27 @@ export default function List() {
             bikeService.getAll()
                 .then(result => {
                     setBikes(result)
+                    console.log(bikes)
                 }).catch(err => {
                     console.log('>> err in list', err.message)
                 })
     }, []);
    
    return (
-        <section>
-            <h2>List All Bikes</h2>
+        <section class="common__section">
+            <h2 class="common__title">BIKES LIST</h2>
             { 
                 bikes.length > 0
-                ? bikes.map(b => <BikeCard key={b._id} bike={b} />)
-                : <h2>No bikes found</h2>
+
+                ? (
+                    <ul className="bikes" >
+                        {bikes.map(b => <BikeCard key={b._id} bike={b} />)}
+                    </ul>
+                )
+                : <h2 className="no-bikes">No bikes found</h2>
             }
+
         </section>
+
     );
 }

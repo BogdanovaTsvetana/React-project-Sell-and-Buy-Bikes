@@ -71,17 +71,19 @@ export default function Create(){
     }
 
     return(
-        <section>
-            <h2>Sell Your Bike</h2>
-            <form onSubmit={createBike} method='POST' >
+        <section class="common__section">
+            <h2 class="common__title">SELL BIKE</h2>
 
+            <form className="form create" onSubmit={createBike} method='POST' >
+                <div className="form create__container">
+                <div className="create__column">
                 <label htmlFor="title">Title required:</label>
                 <input type="text" name="title" />
 
                 <label htmlFor="year">Year:</label>
                 <input type="text" name="year" />
 
-                <label htmlFor="price">Price in lv. required:</label>
+                <label htmlFor="price">Price required:</label>
                 <input type="text" name="price" />
 
                 <label htmlFor="category">Category:</label>
@@ -95,16 +97,32 @@ export default function Create(){
                 </select>
                        
                 <label htmlFor="condition">Condition required:</label>
-                <input type="text" name="condition" />
+                <select  name="condition">
+                    <option value="any">Any</option>
+                    <option value="new">New</option>
+                    <option value="used-like-new">Used - like new</option>
+                    <option value="used-good">Used - good</option>
+                    <option value="poor">Poor</option>
+                </select>
 
                 <label htmlFor="frame-size">Frame Size:</label>
                 <input type="text" name="frame-size" />
+                </div>
 
+                <div className="create__column">
                 <label htmlFor="wheel-size">Wheel Size:</label>
                 <input type="text" name="wheel-size" />
+                
 
                 <label htmlFor="material">Material:</label>
-                <input type="text" name="material" />
+                <select  name="material">
+                    <option value="any">Any</option>
+                    <option value="aluminium">Aluminium</option>
+                    <option value="carbon-fibre">Carbon Fibre</option>
+                    <option value="chromoly">Chromoly</option>
+                    <option value="steel">Steel</option>
+                    <option value="tytanium">Tytanium</option>
+                </select>
 
                 <label htmlFor="front-travel">Front Travel:</label>
                 <input type="text" name="front-travel"/>
@@ -116,14 +134,19 @@ export default function Create(){
                 <input type="text" name="location"  />
 
                 <label htmlFor="description">Description:</label>
-                <textarea name="description" rows="5" cols="50"></textarea>
+                <textarea name="description" rows="3" cols="50"></textarea>
 
                 <label htmlFor="image">Image:</label>
                 <input type="text" name="image" placeholder="https://" />
 
-                <input type="submit"  value="Save" />
+                <button type="submit" class="button">SAVE</button>
+                </div>
 
-            </form>   
+            
+
+                </div>
+            </form>
         </section>
+ 
     );
 }
