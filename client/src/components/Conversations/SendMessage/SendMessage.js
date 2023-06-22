@@ -37,13 +37,13 @@ export default function SendMessage(){
 
     return(
 
-        <section class="common__section">
-            <h2 class="common__title">SEND MESSAGE</h2>           
+        <section className="common__section">
+            <h2 className="common__title">SEND MESSAGE</h2>           
 
             <form  onSubmit={sendMessage} method='POST' className="form">
                 <h3 className="message-title">To  {receiverUsername} | {itemTitle} </h3>
                 <textarea name="message" rows="10" cols="100" placeholder="Your message here..." ></textarea>           
-                <button type="submit" class="button">SEND</button>
+                <button type="submit" className="button">SEND</button>
             </form>                                   
         </section> 
     )

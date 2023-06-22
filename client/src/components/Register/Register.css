@@ -4,3 +4,7 @@
 .button.second{
     background-color: var(--color-purple-main);
 }
+
+.invalid{
+    background-color: red;
+}

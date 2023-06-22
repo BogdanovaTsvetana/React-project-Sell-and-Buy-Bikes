@@ -1,5 +1,4 @@
-const Item = require('../models/Item.js');    //  TODO
-const User = require('../models/User.js');
+const Item = require('../models/Item.js');    
 
 async function createItem(itemData) {
 
@@ -28,7 +27,8 @@ async function editItem(id, newData){
     Object.assign(item, newData);
 
     await item.save();
-    return item;
+    const newItem = await Item.findById(id).populate('owner').lean();  
+    return newItem;
 }
 
 async function deleteItem(id) {

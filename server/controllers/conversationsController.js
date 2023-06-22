@@ -1,8 +1,6 @@
-const router = require('express').Router();   // use only once      //  1
-
-const { isGuest, isUser} = require('../middlewares/guards.js');     // 2
-const userService = require('../services/userService.js');  // 1
-const Conversation = require('../models/Conversation.js');
+const router = require('express').Router();  
+const { isGuest, isUser} = require('../middlewares/guards.js');     
+const userService = require('../services/userService.js');  
 
 // Create conversation  send message 
 router.post('/:username/send-message/:receiverUsername/:itemTitle', isUser(), async (req, res) => {

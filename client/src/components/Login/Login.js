@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { useAuthContext } from '../../context/AuthContext.js';
 import { NotificationContext, types } from '../../context/NotificationContext.js';
 import * as authService from '../../services/authService.js';
@@ -8,20 +8,20 @@ export default function Login(){
     const navigate = useNavigate();
     const { login } = useAuthContext();
     const { addNotification } = useContext(NotificationContext); 
-    
+
+    let usernameRef = useRef();
+    let passwordRef = useRef();
+
     function onSubmit(e){
         e.preventDefault();
-        let formData = new FormData(e.currentTarget);
-        let username = formData.get('username');
-        let password = formData.get('password');
-       
+
         let errors = [];
 
-        if ( username === '') {
+        if ( usernameRef.current.value.trim() === '') {
             errors.push('Username is required!');
         } 
 
-        if ( password === '') {
+        if ( passwordRef.current.value.trim() === '') {
             errors.push('Password is required!');
         }
 
@@ -29,14 +29,14 @@ export default function Login(){
             let message = errors.join(' ')
             addNotification(message, types.error);
         } else {
-
-            authService.login(username, password)
+            authService.login(usernameRef.current.value, passwordRef.current.value)
                 .then(result => {
                     login(result);
                     addNotification('You\'ve been logged in!', types.success);
                     navigate('/list');
                 })
                 .catch(err => {
+                    console.log(err.message)
                     addNotification(err.message, types.error);
                 })
         }
@@ -49,10 +49,10 @@ export default function Login(){
             <form className="form" onSubmit={onSubmit} method="POST" >
 
                 <label htmlFor="username">Username:</label>
-                <input type="text" name="username" placeholder="Username" />
+                <input type="text" name="username" placeholder="Username" ref={usernameRef}/>
 
                 <label htmlFor="password">Password:</label>
-                <input type="password"  name="password" placeholder="Password" />
+                <input type="password"  name="password" placeholder="Password" ref={passwordRef}/>
             
                 <button type="submit" className="button" >Login</button>
             </form>

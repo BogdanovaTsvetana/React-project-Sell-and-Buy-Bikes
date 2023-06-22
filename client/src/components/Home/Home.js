@@ -12,8 +12,8 @@ export default function Home(){
             </article>
             <article className="how">
                 <div className="how__box buy">
-                    <h3 class="how__box__title">FIND BIKE</h3>
-                    <div class = "line"></div>
+                    <h3 className="how__box__title">FIND BIKE</h3>
+                    <div className="line"></div>
                     <ul>
                         <li>Register online. It’s free. Simply enter your details.</li>
                         <li>Brouse from the bike list.</li>
@@ -22,8 +22,8 @@ export default function Home(){
                 </div>
 
                 <div className="how__box sell">
-                    <h3 class="how__box__title">SELL BIKE</h3>
-                    <div class = "line"></div>
+                    <h3 className="how__box__title">SELL BIKE</h3>
+                    <div className="line"></div>
                     <ul>
                         <li>Register online. It’s free. Simply enter your details.</li>
                         <li>Fill in your bike's details.</li>

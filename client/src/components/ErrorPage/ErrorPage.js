@@ -3,11 +3,11 @@ import './ErrorPage.css';
 export default function ErrorPage(){
 
     return(
-        <section class="pnf">
-            <div class="pnf__card">
-                <i class="fa-solid fa-face-frown"></i>
-                <h2 class="pnf__title">404</h2>
-                <h2 class="pnf__title">Page Not Found</h2>
+        <section className="pnf">
+            <div className="pnf__card">
+                <i className="fa-solid fa-face-frown"></i>
+                <h2 className="pnf__title">404</h2>
+                <h2 className="pnf__title">Page Not Found</h2>
             </div>
         </section>
     );

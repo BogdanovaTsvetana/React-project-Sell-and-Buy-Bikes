@@ -13,7 +13,6 @@ import Home from './components/Home/Home.js';
 import List from './components/Bikes/List/List.js';
 import Create from './components/Bikes/Crate/Create.js';
 import Details from './components/Bikes/Details/Details.js';
-import Edit from './components/Bikes/Edit/Edit.js';
 
 import SendMessage from './components/Conversations/SendMessage/SendMessage.js';
 import Inbox from './components/Conversations/Inbox/Inbox.js';
@@ -41,7 +40,6 @@ function App() {
             <Route path="/list/" element={<List />} />
             <Route path="/list/create" element={<Create />} />
             <Route path="/list/:bikeId" element={<Details />} />
-            <Route path="/list/edit/:bikeId" element={<Edit />} />
 
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

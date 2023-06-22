@@ -4,11 +4,9 @@ const { parseError } = require('../util/parsers.js');
 
 router.get('/', async (req, res) => {
     
-    
     try {
         const item = await req.storage.getAllItems(req.query);  // todo
         res.status(200).json(item);
-      
     } catch(err) {
         const message = parseError(err);
         res.status(err.status || 400).json({ message });
@@ -53,9 +51,10 @@ router.get('/:id', async (req, res) => {
     try {
         const item = await req.storage.getItemById(req.params.id);
            
-         let itemData = {...item, owner: item.owner}
+        // let itemData = {...item, owner: item.owner._id}
        
-        res.json(itemData)
+        // res.json(itemData)
+        res.json(item)
       
     }catch(err) {
         console.log(err.message);

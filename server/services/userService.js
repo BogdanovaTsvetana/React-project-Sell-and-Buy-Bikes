@@ -9,6 +9,8 @@ async function register({username, email, password, memberSince, location}) {   
     const pattern = new RegExp(`^${username}$`, 'i')
     const existUsermane =  await User.findOne({ username: { $regex: pattern} });
     const existEmail = await User.findOne({ email });
+
+    console.log(existUsermane, existEmail)
     
         if (existUsermane) {
             const err = new Error('Username is taken!');

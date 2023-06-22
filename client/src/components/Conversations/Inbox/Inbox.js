@@ -20,8 +20,8 @@ export default function Inbox() {
      
    return (
    
-        <section class="common__section">
-            <h2 class="common__title">YOUR CONVERSATIONS</h2>
+        <section className="common__section">
+            <h2 className="common__title">YOUR CONVERSATIONS</h2>
             { 
             conversations.length > 0
             ? (

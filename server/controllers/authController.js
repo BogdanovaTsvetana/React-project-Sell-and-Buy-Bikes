@@ -22,7 +22,6 @@ router.post('/register',
         const { errors } = validationResult(req);
         
         if(errors.length > 0) {
-            //console.log('>>> errors   ', errors);
             const message = errors.map(e => e.msg).join('\n');
             throw new Error(message);
         }

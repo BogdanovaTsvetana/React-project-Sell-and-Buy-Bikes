@@ -65,8 +65,8 @@ const DetailsConversation = () => {
     }
 
     return (
-        <section class="common__section">
-            <h2 class="common__title">Conversation with {conversation.withh} about "{conversation.subject}"</h2>
+        <section className="common__section">
+            <h2 className="common__title">Conversation with {conversation.withh} about "{conversation.subject}"</h2>
     
             { 
                 conversation.messages
@@ -77,8 +77,11 @@ const DetailsConversation = () => {
                     <li class="details-conversation__item">
                         <form onSubmit={sendMessageHandler} method='POST' >
                             <textarea name="message" rows="3" cols="60" placeholder="Your message here..." ></textarea>
-                            <button type="submit" class="button">SEND</button>
-                            <Link to="" onClick={onDeleteClick}> [ Delete Conversation ] </Link>
+                            <div className="buttons-list">
+                                <button type="submit" class="button">SEND</button>
+                                <Link to="" onClick={onDeleteClick} class="button delete-button">DELETE ALL MESSAGES</Link>
+                            </div>
+                            
                         </form>
                     </li>
                 </ul>
