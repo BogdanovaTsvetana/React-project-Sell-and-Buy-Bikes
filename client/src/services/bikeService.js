@@ -1,4 +1,4 @@
-
+import { useSearchParams } from "react-router-dom";
 const baseUrl = 'http://localhost:5000/list';
 
 
@@ -21,8 +21,9 @@ export async function create(bikeData, token) {
     return data;       
 }
 
-export async function getAll() {
-    let response = await fetch(baseUrl)
+export async function getAll(filters) {
+    let response = await fetch(`${baseUrl}?category=${filters.category}&condition=${filters.condition}`)
+    console.log(filters)
 
     if (!response.ok) {
         let message = await response.json();

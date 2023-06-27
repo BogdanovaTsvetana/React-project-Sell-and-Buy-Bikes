@@ -8,7 +8,18 @@ async function createItem(itemData) {
 }
 
 async function getAllItems(query) {
-    const items = await Item.find({}).populate('owner').lean();  
+
+    const options = {};
+
+    if (query.category) {
+        options.category = query.category;
+    };
+
+    if (query.condition) {
+        options.condition = query.condition;
+    };
+
+    const items = Item.find(options).populate('owner').lean();  
     return items;
 }
 

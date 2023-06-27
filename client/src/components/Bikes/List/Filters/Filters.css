@@ -1,0 +1,21 @@
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; 
+    justify-content: center;
+    gap: 15px;
+    margin: 10px;
+}
+  
+.filters select{
+    width: max-content;
+    padding: 8px 12px ;
+}
+  
+.results-found {
+    font-weight: bolder;
+}
+  
+.button.search {
+    margin: 0px;
+}

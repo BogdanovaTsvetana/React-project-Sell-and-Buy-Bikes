@@ -23,6 +23,8 @@
   display: flex;
   justify-content: center;
   background-color: var(--color-background-gray);
+  gap: 40px;
+  padding: 30px;
 }
 
 .how__box{

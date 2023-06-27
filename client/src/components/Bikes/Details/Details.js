@@ -75,7 +75,7 @@ const BikeDetails = () => {
                         <img src={bike.image} alt="Bike photo" />
                     </div>
 
-                    <div className="content">
+                    <div className="details_content">
                         <p className="common__box__item">Price in lv.: <span>{bike.price}</span></p>
                         <p className="common__box__item">Category: <span>{bike.category}</span></p>
                         <p className="common__box__item">Location: {bike.location}</p>

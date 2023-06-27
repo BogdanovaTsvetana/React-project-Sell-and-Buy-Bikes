@@ -127,7 +127,7 @@ export default function Register(){
                         placeholder="Email" 
                         defaultValue={inputState.emailValue}
                         onBlur={ValidationHandler}
-                         className={inputState.emailIsValid === false ? 'input-error' : ''}
+                        className={inputState.emailIsValid === false ? 'input-error' : ''}
                     />
                 </div>
                 

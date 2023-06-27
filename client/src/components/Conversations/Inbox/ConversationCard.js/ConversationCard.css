@@ -10,7 +10,7 @@
   } 
   
   .conversation__content,
-  .button {
+  .conversation.button {
     flex: 1;
   }
   

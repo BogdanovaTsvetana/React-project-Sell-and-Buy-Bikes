@@ -4,10 +4,12 @@
 
 :root {
     --color-yellow-main: #D6FF41;
-    --color-purple-main: #B8B6C3;
+    --color-purple-main: #F1BFA4;
     --color-pink-main: #F1BFA4;
+    --color-pink-main: #73c9ca;
     --color-background-white: whitesmoke;
     --color-background-gray: #ADADAD;
+    --color-background-gray: #e8e6e6;
     --padding-section: 15px 100px;
 }
   

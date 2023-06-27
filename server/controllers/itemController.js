@@ -6,6 +6,8 @@ router.get('/', async (req, res) => {
     
     try {
         const item = await req.storage.getAllItems(req.query);  // todo
+        console.log('>> GET ALL')
+        console.log(req.query)
         res.status(200).json(item);
     } catch(err) {
         const message = parseError(err);

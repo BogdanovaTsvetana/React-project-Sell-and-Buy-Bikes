@@ -29,7 +29,7 @@
   width: 100%;
 }
   
-.content {
+.details_content {
   display: flex;
   flex-direction: column;
   gap: 15px;
