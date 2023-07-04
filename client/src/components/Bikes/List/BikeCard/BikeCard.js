@@ -24,8 +24,7 @@ export default function Bike({
                     <p className="card-info">Seller: {seller.username}</p>
                    
                     <Link to={`/list/${bike._id}`} className="button">Read More</Link>   
-                    <img src="./Bold.jpg" alt="Item photo" />
-                  
+
             </div>
         </div>
     );

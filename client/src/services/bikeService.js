@@ -1,4 +1,3 @@
-import { useSearchParams } from "react-router-dom";
 const baseUrl = 'http://localhost:5000/list';
 
 

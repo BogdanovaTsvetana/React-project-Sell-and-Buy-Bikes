@@ -19,6 +19,7 @@ export async function login(username, password){
 }
 
 export async function register(userData){
+   
     let response = await fetch(baseUrl + '/register', {
         method: 'POST',
         headers: {

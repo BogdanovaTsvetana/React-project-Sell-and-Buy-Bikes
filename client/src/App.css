@@ -41,6 +41,7 @@ body {
   padding: 8px 12px;
   display: block;
   margin: 10px auto 15px;
+  cursor: pointer;
 }
 
 .button.delete-button {
@@ -103,16 +104,6 @@ textarea {
 .error-message {
   color: brown;
   padding: 12px;
-}
-
-/* input.ng-valid, textarea.ng-valid, select.ng-valid  {
-  background-color: rgb(229, 246, 228);
-} */
-
-input.ng-invalid.ng-touched,
-textarea.ng-invalid.ng-touched,
-select.ng-invalid.ng-touched {
-  background-color: rgb(248, 220, 220);
 }
 
 footer {

@@ -5,6 +5,11 @@
     background-color: var(--color-purple-main);
 }
 
+button:disabled{
+    background-color: #bcf0f1;
+    cursor: not-allowed;
+}
+
 .invalid{
     background-color: red;
 }

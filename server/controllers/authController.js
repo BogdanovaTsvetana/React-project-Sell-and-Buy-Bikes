@@ -37,7 +37,7 @@ router.post('/register',
 
         const registerData = await register(userData);
         console.log(registerData) 
-        res.json(registerData);
+        res.json(sendUserWithoutPass(registerData));
     } catch (err) {
         console.log('>> err from auth ', err.message)
         
@@ -51,7 +51,7 @@ router.post('/login', isGuest(), async (req, res) => {
         console.log(req.body.username, req.body.password)
      
         const userData = await login(req.body.username, req.body.password);
-        res.json(userData);
+        res.json(sendUserWithoutPass(userData));
     } catch(err) {
         console.log('>>> in authController/login  ', err.message);
         res.status(err.status || 400).json({ message: err.message }) // 409 Conflict
@@ -63,6 +63,11 @@ router.get('/logout', isUser(), (req, res) => {
     res.status(204).json();
 
 })
+
+function sendUserWithoutPass(userData){
+    const { hashedPassword, __v, ...dataToSend } = userData;
+    return dataToSend;
+}
 
 
 module.exports = router;

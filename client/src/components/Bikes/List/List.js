@@ -6,10 +6,6 @@ import Filter from './Filters/Filter.js';
 import './List.css';
 
 
-// const [searchParams, setSearchParams] = useSearchParams({});
-// setSearchParams({ hello: "world"  });
-// console.log(searchParams);
-
 export default function List() {
     const [bikes, setBikes] = useState([]);
     const[filters, setFilters] = useState({category:'', condition:''});

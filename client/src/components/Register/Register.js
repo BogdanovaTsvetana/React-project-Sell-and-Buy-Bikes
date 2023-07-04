@@ -15,19 +15,19 @@ function reducer(inputState, action){
         case 'username_input':
             return {...inputState, usernameValue: action.val, usernameIsValid: undefined} 
         case 'username_valid':
-            return {...inputState, usernameIsValid: inputState.usernameValue.trim().length > 3};
+            return {...inputState, usernameIsValid: inputState.usernameValue.length > 3};
         case 'password_input':
             return {...inputState, passwordValue: action.val, passwordIsValid: undefined};
         case 'password_valid':
-            return {...inputState, passwordIsValid: inputState.passwordValue.trim().length > 4};
+            return {...inputState, passwordIsValid: inputState.passwordValue.length > 4};
         case 'rePassword_input':
             return {...inputState, rePasswordValue: action.val, rePasswordIsValid: undefined};
         case 'rePassword_valid':
-            return {...inputState, rePasswordIsValid: inputState.rePasswordValue.trim() === inputState.passwordValue}; 
+            return {...inputState, rePasswordIsValid: inputState.rePasswordValue === inputState.passwordValue}; 
         case 'location_input':
             return {...inputState, locationValue: action.val, locationIsValid: undefined};
         case 'location_valid':
-            return {...inputState, locationIsValid: inputState.locationValue.trim().length > 0};                 
+            return {...inputState, locationIsValid: inputState.locationValue.length > 0};                 
     }
 }
 
@@ -53,17 +53,17 @@ export default function Register(){
 
     useEffect(() => {
         updateFormValidation(
-            inputState.emailValue.includes('@') &&
-            inputState.usernameValue.trim().length > 3 &&
-            inputState.passwordValue.trim().length > 4 &&
-            inputState.rePasswordValue.trim() === inputState.passwordValue &&
-            inputState.locationValue.trim().length > 0
+            inputState.emailIsValid && 
+            inputState.usernameIsValid && 
+            inputState.passwordIsValid && 
+            inputState.rePasswordIsValid && 
+            inputState.locationIsValid
         )
     }, [inputState.emailIsValid, inputState.usernameIsValid, inputState.passwordIsValid, inputState.rePasswordIsValid, inputState.locationIsValid])
 
     const onChangeHandler = (e) => {
         let type = `${e.target.name}_input`;
-        inputDispatcher({val: e.target.value, type: type});
+        inputDispatcher({val: e.target.value.trim(), type: type});
     }
 
     const ValidationHandler = (e) => {
@@ -101,6 +101,7 @@ export default function Register(){
             authService.register(userData)
                 .then(result => {
                     login(result);
+                    console.log(result)
                     addNotification('You\'ve been registered!', types.success);
                     navigate('/list');
                 })
@@ -108,6 +109,8 @@ export default function Register(){
                     console.log(err.message)
                     addNotification(err.message, types.error);
                 })
+        }else{
+            console.log('invalid form')
         }
     }
 
@@ -163,7 +166,8 @@ export default function Register(){
                     <input 
                         type="password"  
                         name="rePassword" 
-                        placeholder="Repeat Password" 
+                        placeholder="Repeat Password"
+                        defaultValue={inputState.rePasswordValue} 
                         onBlur={ValidationHandler}
                         className={inputState.rePasswordIsValid === false ? 'input-error' : ''} 
                     />
@@ -171,10 +175,18 @@ export default function Register(){
                 
                 <div>
                     <label htmlFor="location">Location:</label>
-                    <input type="text" name="location" placeholder="Location" />
+                    {inputState.locationIsValid === false && <p className="error-message">Location is required.</p>}
+                    <input 
+                        type="text" 
+                        name="location"
+                        placeholder="Location" 
+                        defaultValue={inputState.locationValue} 
+                        onBlur={ValidationHandler}
+                        className={inputState.rePasswordIsValid === false ? 'input-error' : ''} 
+                    /> 
                 </div>
                 
-                <button type="submit" className="button" disabled={!isFormValid}>REGISTER</button>
+                <button type="submit" className="button" disabled={!isFormValid} >REGISTER</button>
     
             </form>
         </section>
