@@ -30,6 +30,9 @@ export default function Header(){
                     <li className="header__nav__item">
                         <NavLink to="/list/create"  >New Ad</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/list/myAds">My Ads</NavLink>
+                    </li>
                     <li className="header__nav__item">
                         <NavLink to={`/conversations/${user.username}`} >Inbox</NavLink>
                     </li>

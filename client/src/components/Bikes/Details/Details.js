@@ -66,7 +66,6 @@ const BikeDetails = () => {
     return (
         <>
         {!editMode && <section className="common__section">
-            <h2 className="common__title">BIKE DETAILS</h2>
             <div className="common__box bike__box">
                 <h3 className="bike__title">{bike.title}</h3>
 

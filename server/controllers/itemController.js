@@ -15,6 +15,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/myads', async (req, res) => {
+    
+    try {
+        const item = await req.storage.getAllItems(req.query);  
+        console.log(req.query)
+        res.status(200).json(item);
+    } catch(err) {
+        const message = parseError(err);
+        res.status(err.status || 400).json({ message });
+        console.log(err.message);
+    }
+});
+
 router.post('/', isUser(), async (req, res) => {  
    
     const itemData = {

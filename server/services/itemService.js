@@ -19,6 +19,10 @@ async function getAllItems(query) {
         options.condition = query.condition;
     };
 
+    if (query.myAds) {
+        options.owner = query.myAds;
+    }
+
     const items = Item.find(options).populate('owner').lean();  
     return items;
 }

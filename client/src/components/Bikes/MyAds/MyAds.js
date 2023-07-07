@@ -1,38 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as bikeService from '../../../services/bikeService.js';
-import BikeCard from './BikeCard/BikeCard.js';
-import Filter from './Filters/Filter.js';
-import './List.css';
+import BikeCard from '../List/BikeCard/BikeCard.js';
+import { useAuthContext } from '../../../context/AuthContext.js';
 
-
-export default function List() {
+const MyAds = () => {
+    const { user } = useAuthContext();
     const [bikes, setBikes] = useState([]);
-    const[filters, setFilters] = useState({category:'', condition:''});
-    const [resultsFound, setResultsFound] = useState(0);
     const navigate = useNavigate();
    
     useEffect(() => {
-        bikeService.getAll(filters)
+        bikeService.getMyAds(user._id, user.accessToken)
             .then(result => {
                 setBikes(result);
-                setResultsFound(result.length);
-                console.log(bikes);
             }).catch(err => {
-                console.log('>> err in list', err.message);
+                console.log(err.message);
                 navigate('/*');
             })
-    }, [filters]);
-
-
-    function onFilteredBikes(filteredOptions){
-        setFilters(filteredOptions)
-    }
-   
+    }, []);
+ 
    return (
         <section className="common__section">
             <div>
-                <Filter onFilteredBikes={onFilteredBikes} resultsFound={resultsFound}></Filter>
                 <div>
                 { 
                 bikes.length > 0
@@ -43,7 +32,7 @@ export default function List() {
                     </ul>
                 )
                 : 
-                <h2 className="no-bikes">No bikes found</h2>
+                <h2 className="no-bikes">You have no bikes to sell</h2>
             }
                 </div>
             </div>
@@ -52,3 +41,4 @@ export default function List() {
     );
 }
 
+export default MyAds;

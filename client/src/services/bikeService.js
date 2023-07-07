@@ -33,6 +33,23 @@ export async function getAll(filters) {
     return data;       
 }
 
+export async function getMyAds(userId, token) {
+    let response = await fetch(`${baseUrl}/myads/?myAds=${userId}`,{
+    headers: {
+        'Content-type': 'application/json',
+        'X-Authorization': token,
+    }});
+
+    if (!response.ok) {
+        let message = await response.json();
+        throw new Error(message.message);
+    }
+    
+    let data = await response.json();
+    return data;       
+}
+
+
 export async function getOneById(id) {
     let response = await fetch(`${baseUrl}/${id}`)
 
