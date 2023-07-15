@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../../context/AuthContext.js";
+import { AuthContext } from "../../../context/AuthContext.js";
 import * as bikeService from "../../../services/bikeService.js"
 import './Details.css';
 import BikeForm from "../BikeForm/BikeForm.js";
@@ -11,7 +11,7 @@ const BikeDetails = () => {
     const [editMode, setEditMode] = useState(false);
     const { addNotification } = useContext(NotificationContext); 
     const { bikeId } = useParams();
-    const { user } = useAuthContext();
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate(); 
   
     useEffect(() => {

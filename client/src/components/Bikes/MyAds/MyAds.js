@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as bikeService from '../../../services/bikeService.js';
 import BikeCard from '../List/BikeCard/BikeCard.js';
-import { useAuthContext } from '../../../context/AuthContext.js';
+import { AuthContext } from '../../../context/AuthContext.js';
 
 const MyAds = () => {
-    const { user } = useAuthContext();
+    const { user } = useContext(AuthContext);
     const [bikes, setBikes] = useState([]);
     const navigate = useNavigate();
    

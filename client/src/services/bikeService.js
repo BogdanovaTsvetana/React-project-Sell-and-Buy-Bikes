@@ -22,7 +22,6 @@ export async function create(bikeData, token) {
 
 export async function getAll(filters) {
     let response = await fetch(`${baseUrl}?category=${filters.category}&condition=${filters.condition}`)
-    console.log(filters)
 
     if (!response.ok) {
         let message = await response.json();

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useReducer, useState } from 'react';
-import { useAuthContext } from '../../context/AuthContext.js';
+import { AuthContext } from '../../context/AuthContext.js';
 import { NotificationContext, types } from '../../context/NotificationContext.js';
 
 import * as authService from '../../services/authService.js';
@@ -33,7 +33,7 @@ function reducer(inputState, action){
 
 export default function Register(){
     const navigate = useNavigate();
-    const { login } = useAuthContext();
+    const { login } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
 
     let[inputState, inputDispatcher] = useReducer(reducer, {

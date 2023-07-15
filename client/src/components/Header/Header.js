@@ -1,10 +1,11 @@
-import { NavLink } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContext.js';
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
 import './Header.css';
 
 export default function Header(){
-    const { user } = useAuthContext();
-
+    const { user } = useContext(AuthContext);
+   
     return (
         <header className="header">
             <div className="header__logo">
@@ -14,10 +15,10 @@ export default function Header(){
             <nav className="header__nav">
                 <ul className="header__nav__items">
                     <li className="header__nav__item">
-                        <NavLink to="/"  >Home</NavLink>
+                        <NavLink  to="/" >Home</NavLink>
                     </li>
                     <li className="header__nav__item">
-                        <NavLink to="/list"  >List</NavLink>
+                        <NavLink  to="/list" end >List</NavLink>
                     </li>
 
                     { user.username 
@@ -25,12 +26,12 @@ export default function Header(){
                 <>
                
                     <li className="header__nav__item">
-                    <NavLink to="" >Wellcome {user.username}</NavLink>
+                    <Link to="#" >Wellcome {user.username}</Link>
                     </li>
                     <li className="header__nav__item">
-                        <NavLink to="/list/create"  >New Ad</NavLink>
+                        <NavLink  to="/list/create"  >New Ad</NavLink>
                     </li>
-                    <li>
+                    <li className="header__nav__item">
                         <NavLink to="/list/myAds">My Ads</NavLink>
                     </li>
                     <li className="header__nav__item">

@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 
 import * as messagesService from '../../../services/messagesService.js';
-import { useAuthContext } from '../../../context/AuthContext.js';
+import { AuthContext } from '../../../context/AuthContext.js';
 import ConversationCard from './ConversationCard.js/ConversationCard.js';
 
 export default function Inbox() {
     const [conversations, setConversations] = useState([]);
-    const { user } = useAuthContext();
+    const { user } = useContext(AuthContext);
    
     useEffect(() => {
         messagesService.getAllConversations(user.username, user.accessToken)

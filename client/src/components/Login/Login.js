@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom';
 import { useContext, useRef } from 'react';
-import { useAuthContext } from '../../context/AuthContext.js';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext.js';
 import { NotificationContext, types } from '../../context/NotificationContext.js';
 import * as authService from '../../services/authService.js';
 
 export default function Login(){
-    const navigate = useNavigate();
-    const { login } = useAuthContext();
+    const { login } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
+    const navigate = useNavigate();
 
     let usernameRef = useRef();
     let passwordRef = useRef();

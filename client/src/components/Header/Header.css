@@ -1,66 +1,56 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 100px;
-    border-bottom: 7px solid var(--color-background-gray);
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 100px;
+  border-bottom: 7px solid var(--color-background-gray);
+}
   
-  .header__logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--color-yellow-main);
-    color: black;
-  }
+.header__logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--color-yellow-main);
+  color: black;
+}
     
   /* header nav */
-  .header__nav__items {
-    display: flex;
-    align-items: center;
-  }
+.header__nav__items {
+  display: flex;
+  align-items: center;
+}
   
-  .header__nav__item {
-    padding: 20px 20px;
-    cursor: pointer;
-  }
-  
-  .header__nav__item:hover {
-    background-color: var(--color-yellow-main);
-    color: white;
-    font-weight: bold;
-  }
+.header__nav__item a{
+  display: block;
+  padding: 20px 20px;
+}
 
-  /* .active {
-    background-color: var(--color-yellow-main);
-    color: white;
-    font-weight: bold;
-  } */
-  
-  .header__nav__item a {
-    font-size: 14px;
-    text-decoration: none;
-    color: var(--color-font-main);
-  }
+.header__nav__item:hover,
+.header__nav__item .active {
+  background-color: var(--color-yellow-main);
+  font-weight: bold;
+}
 
-  .error, .success {
-    color: white;
-    position:absolute;
-    right: 100px;
-    top: 10%;
-    color: white;
-    padding: 30px; 
-    border-radius: 4px;
-    animation: scale-up-hor-right 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  /* message */
+.error, .success {
+  color: white;
+  position:absolute;
+  right: 100px;
+  top: 10%;
+  color: white;
+  padding: 30px; 
+  border-radius: 4px;
+  animation: scale-up-hor-right 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .success {
-    background-color: rgb(118, 173, 118);
+  background-color: rgrgb(199, 222, 199)
 }
 
 .error {
   background-color: rgb(191, 44, 44);
 }
+
 .error p, .success p {
-    padding: 20px;
-    margin-left: 60px;
+  padding: 20px;
+  margin-left: 60px;
 }

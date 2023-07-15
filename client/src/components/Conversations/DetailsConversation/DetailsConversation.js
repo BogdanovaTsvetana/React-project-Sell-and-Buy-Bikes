@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-
-import { useAuthContext } from "../../../context/AuthContext.js";
+import { AuthContext } from "../../../context/AuthContext.js";
 import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as messagesService from "../../../services/messagesService.js"
 import MessageCard from './MessageCard/MessageCard.js';
@@ -10,7 +9,7 @@ import './DetailsConversation.css';
 const DetailsConversation = () => {
     const [conversation, setConversation] = useState({});
     const { conversationId } = useParams();
-    const { user } = useAuthContext();
+    const { user } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
     const navigate = useNavigate();
 
@@ -74,7 +73,7 @@ const DetailsConversation = () => {
                 <ul className="details-conversation__items">
                     {conversation.messages.map(m => <MessageCard key={m._id} message={m} />)}
 
-                    <li class="details-conversation__item">
+                    <li className="details-conversation__item">
                         <form onSubmit={sendMessageHandler} method='POST' >
                             <textarea name="message" rows="3" cols="60" placeholder="Your message here..." ></textarea>
                             <div className="buttons-list">
