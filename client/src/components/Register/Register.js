@@ -6,6 +6,19 @@ import { NotificationContext, types } from '../../context/NotificationContext.js
 import * as authService from '../../services/authService.js';
 import './Register.css';
 
+const initialInputState = {
+    usernameValue: '',
+    usernameIsValid: undefined,
+    emailValue: '',
+    emailIsValid: undefined,
+    passwordValue: '',
+    passwordIsValid: undefined,
+    rePasswordValue: '',
+    rePasswordIsValid: undefined,
+    locationValue: '',
+    locationIsValid: undefined
+}
+
 function reducer(inputState, action){
     switch(action.type){
         case 'email_input':
@@ -36,19 +49,7 @@ export default function Register(){
     const { login } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
 
-    let[inputState, inputDispatcher] = useReducer(reducer, {
-        usernameValue: '',
-        usernameIsValid: undefined,
-        emailValue: '',
-        emailIsValid: undefined,
-        passwordValue: '',
-        passwordIsValid: undefined,
-        rePasswordValue: '',
-        rePasswordIsValid: undefined,
-        locationValue: '',
-        locationIsValid: undefined
-    })
-
+    let[inputState, inputDispatcher] = useReducer(reducer, initialInputState)
     let[isFormValid, updateFormValidation] = useState(false);
 
     useEffect(() => {

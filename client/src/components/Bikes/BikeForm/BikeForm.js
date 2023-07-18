@@ -29,22 +29,22 @@ const BikeForm = (props) => {
         const err = {};
 
         if(!bike.title){
-            err.title = 'Title is required.';
+            err.title = 'Required';
         }
         if(!isPositiveNumber(bike.price)){
-            err.price = 'Price should be e positive number.';
+            err.price = 'Should be e positive number.';
         }
         if(bike.condition == ''){
-            err.condition = 'Condition is recuired.';
+            err.condition = 'Required';
         }
         if(bike.category == ''){
-            err.category = 'Category is recuired.';
+            err.category = 'Required';
         }
-        if(!bike.location){
-            errors.location = 'Location is required.';
+        if(bike.location == ''){
+            errors.location = 'Required';
         }
         if(/^https?:\/\//.test(bike.image) == false){
-            err.image = 'Image should be a valid URL';
+            err.image = 'Should be a valid URL';
         }
         return err;
     };
@@ -68,7 +68,7 @@ const BikeForm = (props) => {
             <form className="form edit" onSubmit={handleSubmit} method='POST' >
 
                 <div>
-                    <label htmlFor="title">Title:</label>
+                    <label htmlFor="title">Title: </label>
                     {errors.title && <div className="error-message">{errors.title}</div>}
                     <input 
                         type="text" 
@@ -76,6 +76,7 @@ const BikeForm = (props) => {
                         placeholder="Title is required"
                         defaultValue={bike.title}
                         onChange={handleInputChange}
+                        className={errors.title ? 'input-error' : ''}
                     />
                 </div>
                 
@@ -97,7 +98,8 @@ const BikeForm = (props) => {
                         name="price"
                         placeholder="Price should be e positive number"
                         defaultValue={bike.price}
-                        onChange={handleInputChange} 
+                        onChange={handleInputChange}
+                        className={errors.price ? 'input-error' : ''} 
                     />
                 </div>
                 
@@ -107,7 +109,8 @@ const BikeForm = (props) => {
                     <select  
                         name="category" 
                         value={bike.category} 
-                        onChange={handleInputChange}>    
+                        onChange={handleInputChange}
+                        className={errors.category ? 'input-error' : ''}>    
                         <option value="">Set category</option>    
                         <option value="Mountain Bikes">Mountain Bikes</option>
                         <option value="Road Bikes">Road Bikes</option>
@@ -123,7 +126,8 @@ const BikeForm = (props) => {
                     <select  
                         name="condition" 
                         value={bike.condition} 
-                        onChange={handleInputChange}>
+                        onChange={handleInputChange}
+                        className={errors.condition ? 'input-error' : ''}>
                         <option value="">Set condition</option>
                         <option value="New">New</option>
                         <option value="Used like new">Used like new</option>
@@ -188,7 +192,7 @@ const BikeForm = (props) => {
                 </div>
                 
                 <div>
-                    <label htmlFor="location">Location:</label>
+                    <label htmlFor="location">Location: </label>
                     {errors.location && <div className="error-message">{errors.location}</div>}
                     <input 
                         type="text" 
@@ -196,6 +200,7 @@ const BikeForm = (props) => {
                         placeholder="Location is required"
                         defaultValue={bike.location} 
                         onChange={handleInputChange}
+                        className={errors.location ? 'input-error' : ''}
                     />
                 </div>
                
@@ -219,6 +224,7 @@ const BikeForm = (props) => {
                         placeholder="Required https://" 
                         defaultValue={bike.image}
                         onChange={handleInputChange}
+                        className={errors.image ? 'input-error' : ''}
                     />
                 </div>
                 

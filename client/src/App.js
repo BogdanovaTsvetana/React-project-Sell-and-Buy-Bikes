@@ -11,7 +11,7 @@ import Logout from './components/Logout/Logout.js';
 import Header from './components/Header/Header.js';
 import Home from './components/Home/Home.js';
 import List from './components/Bikes/List/List.js';
-import Create from './components/Bikes/Crate/Create.js';
+import Create from './components/Bikes/Create/Create.js';
 import MyAds from './components/Bikes/MyAds/MyAds.js';
 import Details from './components/Bikes/Details/Details.js';
 

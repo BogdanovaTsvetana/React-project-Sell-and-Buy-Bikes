@@ -5,10 +5,13 @@ import * as bikeService from "../../../services/bikeService.js"
 import './Details.css';
 import BikeForm from "../BikeForm/BikeForm.js";
 import { NotificationContext, types } from '../../../context/NotificationContext.js';
+import ConfirmDialog from "../../ConfirmDialog/ConfirmDialog.js";
 
 const BikeDetails = () => {
     const [bike, setBike] = useState({});
     const [editMode, setEditMode] = useState(false);
+    const [showConfirmDialog, updateConfirmDialoge] = useState(false);
+    
     const { addNotification } = useContext(NotificationContext); 
     const { bikeId } = useParams();
     const { user } = useContext(AuthContext);
@@ -28,10 +31,6 @@ const BikeDetails = () => {
     let postDate = bike.postDate ? bike.postDate.slice(0, 10) : '';
     let memberSince = bike.owner?.memberSince ? bike.owner.memberSince.slice(0, 10) : '';
 
-    const onEditClick = () => {
-        setEditMode(true);
-    }
-
     const editBike = (updatedBikeData) => {
         bikeService.edit(bikeId, updatedBikeData, user.accessToken)
         .then(result => {
@@ -45,12 +44,8 @@ const BikeDetails = () => {
         }) 
     }
 
-
-    function onDeleteClick(){
-        let del = window.confirm(`Do you really want to delete ${bike.title}?`);
-
-        if(del){
-            bikeService.deleteBike(bikeId, user.accessToken)
+    function handleDelete(){
+        bikeService.deleteBike(bikeId, user.accessToken)
             .then(() => {
                 console.log('>> deleted');
                 addNotification('You\'ve deleted you ad.', types.success);
@@ -58,9 +53,9 @@ const BikeDetails = () => {
             })
             .catch(err => {
                 console.log(err.message);
+                updateConfirmDialoge(false);
                 addNotification(err.message, types.error);
              });
-        }
     }
 
     return (
@@ -93,8 +88,8 @@ const BikeDetails = () => {
                             <div className="buttons-list">
                             { user._id && bike.owner && (user._id == bike.owner._id) &&
                                 <>
-                                    <button onClick={onEditClick} className="button">EDIT</button>
-                                    <button onClick={onDeleteClick} className="button delete-button">DELETE</button>
+                                    <button onClick={() => setEditMode(true)} className="button">EDIT</button>
+                                    <button onClick={() => updateConfirmDialoge(true)} className="button delete-button">DELETE</button>
                                 </>}
 
                             { user._id && bike.owner && (user._id !== bike.owner._id) &&
@@ -111,6 +106,10 @@ const BikeDetails = () => {
            </div>
         </section>}
         {editMode && <BikeForm bike={bike} editBike={editBike} editMode={editMode}></BikeForm>}
+        {showConfirmDialog && <ConfirmDialog 
+            handleCancel={() => updateConfirmDialoge(false)} 
+            handleDelete={handleDelete}
+            question={`Do you really want to delete ${bike.title}?`}></ConfirmDialog>}
         </>
     );
 }

@@ -17,10 +17,10 @@ const DetailsConversation = () => {
         messagesService.getConversation(user.username, conversationId, user.accessToken)
             .then(result => {
                 setConversation(result);
-              
+                console.log(result)
             })
             .catch(err => {
-                console.log('>> notif>>', err.message) 
+                console.log(err.message); 
                 navigate(`*`);
             })   
     }, []);
@@ -78,7 +78,7 @@ const DetailsConversation = () => {
                             <textarea name="message" rows="3" cols="60" placeholder="Your message here..." ></textarea>
                             <div className="buttons-list">
                                 <button type="submit" class="button">SEND</button>
-                                <Link to="" onClick={onDeleteClick} class="button delete-button">DELETE ALL MESSAGES</Link>
+                                <Link to="" onClick={onDeleteClick} className="button delete-button">DELETE ALL MESSAGES</Link>
                             </div>
                             
                         </form>
