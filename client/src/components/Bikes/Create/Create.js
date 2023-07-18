@@ -21,7 +21,7 @@ const bikeModel = {
     image: '',    
 }
 
-export default function Create(){
+function Create(){
     const navigate = useNavigate();
     let { user } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
@@ -43,5 +43,7 @@ export default function Create(){
    
     return(
         <BikeForm bike={bikeModel} createBike={createBike}></BikeForm>
-    );
+    );   
 }
+
+export default Create;

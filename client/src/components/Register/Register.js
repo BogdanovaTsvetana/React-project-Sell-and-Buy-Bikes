@@ -123,8 +123,9 @@ export default function Register(){
             <form className="form" onSubmit={onSubmit} method="POST" onChange={onChangeHandler} >
 
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    {inputState.emailIsValid === false && <p className="error-message">Email is not valid</p>}
+                    <label htmlFor="email">
+                        Email {inputState.emailIsValid === false && <span className="error-message">not valid</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="email" 
@@ -136,8 +137,9 @@ export default function Register(){
                 </div>
                 
                 <div>
-                    <label htmlFor="username">Username:</label>
-                    {inputState.usernameIsValid === false && <p className="error-message">Username should be more than 3 characters long.</p>}
+                    <label htmlFor="username">
+                        Username {inputState.usernameIsValid === false && <span className="error-message">should be more than 3 characters long.</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="username" 
@@ -149,8 +151,9 @@ export default function Register(){
                 </div>
                 
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    {inputState.passwordIsValid === false && <p className="error-message">Password should be more than 4 characters long.</p>}
+                    <label htmlFor="password">
+                        Password {inputState.passwordIsValid === false && <span className="error-message">should be more than 4 characters long</span>}
+                    </label>
                     <input 
                         type="password"  
                         name="password" 
@@ -162,8 +165,9 @@ export default function Register(){
                 </div>
                 
                 <div>
-                    <label htmlFor="rePassword">Repeat Password:</label>
-                    {inputState.rePasswordIsValid === false && <p className="error-message">Passwords don't match.</p>}
+                    <label htmlFor="rePassword">
+                        Repeat Password {inputState.rePasswordIsValid === false && <span className="error-message">Passwords don't match</span>}
+                    </label>
                     <input 
                         type="password"  
                         name="rePassword" 
@@ -175,8 +179,9 @@ export default function Register(){
                 </div>
                 
                 <div>
-                    <label htmlFor="location">Location:</label>
-                    {inputState.locationIsValid === false && <p className="error-message">Location is required.</p>}
+                    <label htmlFor="location">
+                        Location {inputState.locationIsValid === false && <span className="error-message">required</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="location"

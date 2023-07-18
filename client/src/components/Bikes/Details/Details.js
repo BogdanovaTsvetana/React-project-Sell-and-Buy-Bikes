@@ -58,6 +58,7 @@ const BikeDetails = () => {
              });
     }
 
+
     return (
         <>
         {!editMode && <section className="common__section">
@@ -105,11 +106,17 @@ const BikeDetails = () => {
                 </article>
            </div>
         </section>}
-        {editMode && <BikeForm bike={bike} editBike={editBike} editMode={editMode}></BikeForm>}
+        {editMode && <BikeForm 
+            bike={bike} 
+            editBike={editBike} 
+            editMode={editMode} 
+            handleCancel={() => setEditMode(false)}>
+        </BikeForm>}
         {showConfirmDialog && <ConfirmDialog 
             handleCancel={() => updateConfirmDialoge(false)} 
             handleDelete={handleDelete}
-            question={`Do you really want to delete ${bike.title}?`}></ConfirmDialog>}
+            question={`Do you really want to delete ${bike.title}?`}>
+        </ConfirmDialog>}
         </>
     );
 }

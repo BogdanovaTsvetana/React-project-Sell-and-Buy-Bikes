@@ -19,7 +19,7 @@ export const NotificationProvider = ({
 
         setTimeout(() => {
             setNotification(initialNotificationState);
-        }, 5000);
+        }, 3000);
     }
 
     return (

@@ -44,7 +44,7 @@ body {
   cursor: pointer;
 }
 
-.button:hover{
+.button:hover {
   background-color: #63a9ab;
 }
 
@@ -52,37 +52,37 @@ body {
   background-color: #EC7066;
 }
 
-.button.delete-button:hover{
+.button.delete-button:hover {
   background-color: #d8675e;
 }
 
-.button.cancel-button{
+.button.cancel-button {
   background-color: #cbc8c8;
 }
 
-.button.cancel-button:hover{
+.button.cancel-button:hover {
   background-color: #acaaaa;
 }
 
-.buttons-list{
+.buttons-list {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 }
 
-a{
+a {
   text-decoration: none;
   text-align: center;
   cursor: pointer;
 }
 
-.form{
+.form {
   padding: 30px;
   margin: 0 auto;
   background-color: var(--color-yellow-main);
 }
 
-.common__box{
+.common__box {
   padding: 30px;
   margin: 0 auto;
   background-color: var(--color-background-white);
@@ -91,12 +91,16 @@ a{
   gap: 15px;
 }
 
-.common__box__item{
+.common__box__item {
   font-size: 16px;
 }
 
 form label {
   padding: 12px;
+}
+
+form div {
+  margin-top: 5px;
 }
 
 input[type=text],
@@ -114,7 +118,7 @@ textarea {
   margin: 8px;
 }
 
-.input-error{
+.input-error {
   background-color: rgb(244, 220, 220);
 }
 

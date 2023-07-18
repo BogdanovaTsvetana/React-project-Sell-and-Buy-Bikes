@@ -41,7 +41,7 @@ const BikeForm = (props) => {
             err.category = 'Required';
         }
         if(bike.location == ''){
-            errors.location = 'Required';
+            err.location = 'Required';
         }
         if(/^https?:\/\//.test(bike.image) == false){
             err.image = 'Should be a valid URL';
@@ -64,48 +64,50 @@ const BikeForm = (props) => {
       
     return (   
         <section className="common__section">
-            <h2 className="common__title">{props.editMode ? 'EDIT YOR AD' : 'SELL BIKE'}</h2>
             <form className="form edit" onSubmit={handleSubmit} method='POST' >
 
                 <div>
-                    <label htmlFor="title">Title: </label>
-                    {errors.title && <div className="error-message">{errors.title}</div>}
+                    <label htmlFor="title">
+                        Title {errors.title && <span className="error-message">{errors.title}</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="title"
                         placeholder="Title is required"
                         defaultValue={bike.title}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                         className={errors.title ? 'input-error' : ''}
                     />
                 </div>
                 
                 <div>
-                    <label htmlFor="year">Year:</label>
+                    <label htmlFor="year">Year</label>
                     <input 
                         type="text" 
                         name="year" 
                         defaultValue={bike.year}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                     />
                 </div>
                 
                 <div>
-                    <label htmlFor="price">Price:</label>
-                    {errors.price && <div className="error-message">{errors.price}</div>}
+                    <label htmlFor="price">
+                        Price {errors.price && <span className="error-message">{errors.price}</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="price"
                         placeholder="Price should be e positive number"
                         defaultValue={bike.price}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                         className={errors.price ? 'input-error' : ''} 
                     />
                 </div>
                 
                 <div>
-                    <label htmlFor="category">Category:</label>
-                    {errors.category && <div className="error-message">{errors.category}</div>}
+                    <label htmlFor="category">
+                        Category {errors.category && <span className="error-message">{errors.category}</span>}
+                    </label>
                     <select  
                         name="category" 
                         value={bike.category} 
@@ -121,8 +123,9 @@ const BikeForm = (props) => {
                 </div>
                 
                 <div>
-                    <label htmlFor="condition">Condition:</label>
-                    {errors.condition && <div className="error-message">{errors.condition}</div>}
+                    <label htmlFor="condition">
+                        Condition {errors.condition && <span className="error-message">{errors.condition}</span>}
+                    </label>
                     <select  
                         name="condition" 
                         value={bike.condition} 
@@ -137,27 +140,27 @@ const BikeForm = (props) => {
                 </div>
 
                 <div>
-                    <label htmlFor="frameSize">Frame Size:</label>
+                    <label htmlFor="frameSize">Frame Size</label>
                     <input 
                         type="text" 
                         name="frameSize" 
                         defaultValue={bike.frameSize}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                     />
                 </div>
                
                 <div>
-                    <label htmlFor="wheelSize">Wheel Size:</label>
+                    <label htmlFor="wheelSize">Wheel Size</label>
                     <input 
                         type="text" 
                         name="wheelSize" 
                         defaultValue={bike.wheelSize}
-                        onChange={handleInputChange} 
+                        onBlur={handleInputChange} 
                     />
                 </div>
                 
                 <div>
-                    <label htmlFor="material">Material:</label>
+                    <label htmlFor="material">Material</label>
                     <select  
                         name="material" 
                         value={bike.material} 
@@ -172,66 +175,76 @@ const BikeForm = (props) => {
                 </div>
                 
                 <div>
-                    <label htmlFor="frontTravel">Front Travel:</label>
+                    <label htmlFor="frontTravel">Front Travel</label>
                     <input 
                         type="text" 
                         name="frontTravel" 
                         defaultValue={bike.frontTravel} 
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="rearTravel">Rear Travel:</label>
+                    <label htmlFor="rearTravel">Rear Travel</label>
                     <input 
                         type="text" 
                         name="rearTravel" 
                         defaultValue={bike.rearTravel}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                     />
                 </div>
                 
                 <div>
-                    <label htmlFor="location">Location: </label>
-                    {errors.location && <div className="error-message">{errors.location}</div>}
+                    <label htmlFor="location">
+                        Location {errors.location && <span className="error-message">{errors.location}</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="location" 
                         placeholder="Location is required"
                         defaultValue={bike.location} 
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                         className={errors.location ? 'input-error' : ''}
                     />
                 </div>
                
                 <div>
-                    <label htmlFor="description">Description:</label>
+                    <label htmlFor="description">Description</label>
                     <textarea 
                         name="description" 
                         rows="3" 
                         cols="50"
                         defaultValue={bike.description}
-                        onChange={handleInputChange}>
+                        onBlur={handleInputChange}>
                     </textarea>
                 </div>
                 
                 <div>
-                    <label htmlFor="image">Image:</label>
-                    {errors.image && <div className="error-message">{errors.image}</div>}
+                    <label htmlFor="image">
+                        Image {errors.image && <span className="error-message">{errors.image}</span>}
+                    </label>
                     <input 
                         type="text" 
                         name="image" 
                         placeholder="Required https://" 
                         defaultValue={bike.image}
-                        onChange={handleInputChange}
+                        onBlur={handleInputChange}
                         className={errors.image ? 'input-error' : ''}
                     />
                 </div>
                 
-                <button 
-                    type="submit" 
-                    className="button">{props.editMode ? 'UPDATE' : 'CREATE'}
-                </button>
+                <div className="buttons-list">
+                    <button 
+                        type="submit" 
+                        className="button">{props.editMode ? 'UPDATE' : 'CREATE'}
+                    </button>
+                    {props.editBike && <button 
+                        type="button" 
+                        className="button cancel-button"
+                        onClick={() => props.handleCancel()}>CANCEL
+                    </button>}
+                </div>
+                
 
             </form>   
         </section>

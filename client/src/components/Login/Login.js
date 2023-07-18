@@ -48,10 +48,10 @@ export default function Login(){
        
             <form className="form" onSubmit={onSubmit} method="POST" >
 
-                <label htmlFor="username">Username:</label>
+                <label htmlFor="username">Username</label>
                 <input type="text" name="username" placeholder="Username" ref={usernameRef}/>
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password</label>
                 <input type="password"  name="password" placeholder="Password" ref={passwordRef}/>
             
                 <button type="submit" className="button" >Login</button>
