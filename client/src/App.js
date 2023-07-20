@@ -22,6 +22,7 @@ import DetailsConversation from './components/Conversations/DetailsConversation/
 import ErrorPage from './components/ErrorPage/ErrorPage.js';
 
 import './App.css'
+import Footer from './components/Footer/Footer.js';
 
 
 function App() {
@@ -57,10 +58,7 @@ function App() {
           </Routes>
         
       </div>
-
-      <footer>
-        <p>@ React Project Buy and Sell Bikes</p>
-      </footer> 
+      <Footer />
     </div>
     </NotificationProvider> 
     </AuthProvider>

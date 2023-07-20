@@ -1,0 +1,27 @@
+.footer {
+    background-color: #d6d4d4;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-section);
+}
+  
+.footer__col__title {
+    font-size: 18px;
+    margin-bottom: 17px;
+}
+  
+.footer__col__list li {
+    margin: 12px 0;
+}
+   
+.footer .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 20px;
+}
+  
+
