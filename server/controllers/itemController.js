@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/myads', async (req, res) => {
+router.get('/myads/:id', async (req, res) => {
     
     try {
-        const item = await req.storage.getAllItems(req.query);  
-        console.log(req.query)
+        const item = await req.storage.getAllItems({userId: req.params.id});  
+        console.log(req.params.id);
         res.status(200).json(item);
     } catch(err) {
         const message = parseError(err);

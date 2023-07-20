@@ -9,7 +9,7 @@ export default function Inbox() {
     const { user } = useContext(AuthContext);
    
     useEffect(() => {
-        messagesService.getAllConversations(user.username, user.accessToken)
+        messagesService.getAllConversations(user.username)
             .then(result => {
                 setConversations(result)
             })

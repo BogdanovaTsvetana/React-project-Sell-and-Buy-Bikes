@@ -22,7 +22,7 @@ export default function SendMessage(){
             message,
         }
                
-        messageService.createConversation( messageData, user.accessToken, username, receiverUsername, itemTitle)
+        messageService.createConversation( messageData, username, receiverUsername, itemTitle)
             .then(result => {
                 console.log('>> created')
                 console.log(result)

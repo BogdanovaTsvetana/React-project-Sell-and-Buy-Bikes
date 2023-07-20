@@ -1,12 +1,13 @@
+import getToken from "./authService.js";
+
 const baseUrl = 'http://localhost:5000/list';
 
-
-export async function create(bikeData, token) {
+export async function create(bikeData) {
     let response = await fetch(baseUrl, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
-            'X-Authorization': token,
+            'X-Authorization': getToken(),
         },
         body: JSON.stringify(bikeData)
         })
@@ -32,23 +33,6 @@ export async function getAll(filters) {
     return data;       
 }
 
-export async function getMyAds(userId, token) {
-    let response = await fetch(`${baseUrl}/myads/?myAds=${userId}`,{
-    headers: {
-        'Content-type': 'application/json',
-        'X-Authorization': token,
-    }});
-
-    if (!response.ok) {
-        let message = await response.json();
-        throw new Error(message.message);
-    }
-    
-    let data = await response.json();
-    return data;       
-}
-
-
 export async function getOneById(id) {
     let response = await fetch(`${baseUrl}/${id}`)
 
@@ -61,26 +45,28 @@ export async function getOneById(id) {
     return data;       
 }
 
-export async function deleteBike(id, token) {
-    let response = await fetch(`${baseUrl}/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'X-Authorization': token,
-        },
-    })
+export async function getMyAds(userId) {
+    // let response = await fetch(`${baseUrl}/myads/?myAds=${userId}`,{
+    let response = await fetch(`${baseUrl}/myads/${userId}`,{
+    headers: {
+        'X-Authorization': getToken(),
+    }});
 
     if (!response.ok) {
         let message = await response.json();
-        throw new Error(message);
-    }     
+        throw new Error(message.message);
+    }
+    
+    let data = await response.json();
+    return data;       
 }
 
-export async function edit(bikeId, bikeData, token){
+export async function edit(bikeId, bikeData){
     let response = await fetch(`${baseUrl}/${bikeId}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json',
-            'X-Authorization': token,
+            'X-Authorization': getToken(),
         },
         body: JSON.stringify(bikeData)
         })
@@ -93,5 +79,21 @@ export async function edit(bikeId, bikeData, token){
     let data = await response.json();
     return data;       
 }
+
+export async function deleteBike(id) {
+    let response = await fetch(`${baseUrl}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': getToken(),
+        },
+    })
+
+    if (!response.ok) {
+        let message = await response.json();
+        throw new Error(message);
+    }     
+}
+
+
 
 

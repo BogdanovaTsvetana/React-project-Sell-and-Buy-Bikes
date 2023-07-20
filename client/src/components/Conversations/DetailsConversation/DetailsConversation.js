@@ -14,7 +14,7 @@ const DetailsConversation = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        messagesService.getConversation(user.username, conversationId, user.accessToken)
+        messagesService.getConversation(user.username, conversationId)
             .then(result => {
                 setConversation(result);
                 console.log(result)
@@ -36,7 +36,7 @@ const DetailsConversation = () => {
             message,
         }
         
-        messagesService.sendMessage(messageData, user.username, conversationId, user.accessToken)
+        messagesService.sendMessage(messageData, user.username, conversationId)
             .then(result => {
                 console.log('result')
                 console.log(result)
@@ -53,7 +53,7 @@ const DetailsConversation = () => {
     function onDeleteClick(e){
         e.preventDefault();
         
-        messagesService.deleteConversation(conversation.username, conversation.conversationId, user.accessToken)
+        messagesService.deleteConversation(conversation.username, conversation.conversationId)
             .then(() => {
                 console.log('>> deleted')
                 navigate('/list')
@@ -77,7 +77,7 @@ const DetailsConversation = () => {
                         <form onSubmit={sendMessageHandler} method='POST' >
                             <textarea name="message" rows="3" cols="60" placeholder="Your message here..." ></textarea>
                             <div className="buttons-list">
-                                <button type="submit" class="button">SEND</button>
+                                <button type="submit" className="button">SEND</button>
                                 <Link to="" onClick={onDeleteClick} className="button delete-button">DELETE ALL MESSAGES</Link>
                             </div>
                             

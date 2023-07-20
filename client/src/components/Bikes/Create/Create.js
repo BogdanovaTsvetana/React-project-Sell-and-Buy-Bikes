@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthContext.js';
 import { NotificationContext, types } from '../../../context/NotificationContext.js';
 import * as bikeService from '../../../services/bikeService.js';
 import BikeForm from '../BikeForm/BikeForm.js';
@@ -23,13 +22,12 @@ const bikeModel = {
 
 function Create(){
     const navigate = useNavigate();
-    let { user } = useContext(AuthContext);
     const { addNotification } = useContext(NotificationContext); 
 
     const createBike = (bike) => {
         bike.postDate = new Date();
     
-        bikeService.create(bike, user.accessToken)
+        bikeService.create(bike)
             .then(result => {
                 console.log(result)
                 addNotification('You\'ve created your ad!', types.success);

@@ -3,14 +3,6 @@ import './ConfirmDialog.css';
 const ConfirmDialog = (props) =>{
     const question = props.question;
 
-    // function onHandleCancel(){
-    //     props.handleCancel();
-    // }
-
-    // function handleDelete(){
-    //     props.handleDelete();
-    // } 
-    
     return(
         <div className="modal">
             <p>{question}</p>

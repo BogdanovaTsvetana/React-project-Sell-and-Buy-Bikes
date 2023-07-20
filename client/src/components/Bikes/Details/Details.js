@@ -11,7 +11,6 @@ const BikeDetails = () => {
     const [bike, setBike] = useState({});
     const [editMode, setEditMode] = useState(false);
     const [showConfirmDialog, updateConfirmDialoge] = useState(false);
-    
     const { addNotification } = useContext(NotificationContext); 
     const { bikeId } = useParams();
     const { user } = useContext(AuthContext);
@@ -32,7 +31,7 @@ const BikeDetails = () => {
     let memberSince = bike.owner?.memberSince ? bike.owner.memberSince.slice(0, 10) : '';
 
     const editBike = (updatedBikeData) => {
-        bikeService.edit(bikeId, updatedBikeData, user.accessToken)
+        bikeService.edit(bikeId, updatedBikeData)
         .then(result => {
             setBike(result);
             setEditMode(false);
@@ -45,7 +44,7 @@ const BikeDetails = () => {
     }
 
     function handleDelete(){
-        bikeService.deleteBike(bikeId, user.accessToken)
+        bikeService.deleteBike(bikeId)
             .then(() => {
                 console.log('>> deleted');
                 addNotification('You\'ve deleted you ad.', types.success);

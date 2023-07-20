@@ -10,7 +10,7 @@ const MyAds = () => {
     const navigate = useNavigate();
    
     useEffect(() => {
-        bikeService.getMyAds(user._id, user.accessToken)
+        bikeService.getMyAds(user._id)
             .then(result => {
                 setBikes(result);
             }).catch(err => {

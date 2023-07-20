@@ -37,11 +37,22 @@ export async function register(userData){
     return data;       
 }
 
-export async function logout(token){
+export async function logout(){
     let response = fetch(baseUrl + '/logout', {
         method: 'GET',
         headers: {
-            'X-Authorization': token,
+            'X-Authorization': getToken(),
         }
     })
+}
+
+export default function getToken() {
+    let userFromLocalStorage = localStorage.getItem('user');
+
+    if(!userFromLocalStorage){
+        throw {message: 'You must be authenticated'}
+    }
+
+    let user = JSON.parse(userFromLocalStorage);
+    return user.accessToken;
 }
