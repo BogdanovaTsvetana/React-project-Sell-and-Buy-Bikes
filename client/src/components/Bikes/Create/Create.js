@@ -27,7 +27,7 @@ function Create(){
     const createBike = (bike) => {
         bike.postDate = new Date();
     
-        bikeService.create(bike)
+        bikeService.createBike(bike)
             .then(result => {
                 console.log(result)
                 addNotification('You\'ve created your ad!', types.success);

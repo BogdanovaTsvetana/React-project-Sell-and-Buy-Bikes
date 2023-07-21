@@ -5,7 +5,6 @@ import BikeCard from './BikeCard/BikeCard.js';
 import Filter from './Filters/Filter.js';
 import './List.css';
 
-
 export default function List() {
     const [bikes, setBikes] = useState([]);
     const[filters, setFilters] = useState({category:'', condition:''});
@@ -17,7 +16,6 @@ export default function List() {
             .then(result => {
                 setBikes(result);
                 setResultsFound(result.length);
-                console.log(bikes);
             }).catch(err => {
                 console.log('>> err in list', err.message);
                 navigate('/*');

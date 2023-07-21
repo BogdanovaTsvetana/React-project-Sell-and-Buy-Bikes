@@ -31,7 +31,7 @@ const BikeDetails = () => {
     let memberSince = bike.owner?.memberSince ? bike.owner.memberSince.slice(0, 10) : '';
 
     const editBike = (updatedBikeData) => {
-        bikeService.edit(bikeId, updatedBikeData)
+        bikeService.editBike(bikeId, updatedBikeData)
         .then(result => {
             setBike(result);
             setEditMode(false);
